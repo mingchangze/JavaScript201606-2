@@ -1,0 +1,143 @@
+1.预解释毫无节操-自执行函数
+    f=function(){return true};
+    g=function(){return false};
+    (function(){
+        if(g()&&[]==![]){
+            f=function(){return false;}
+            function g(){return true;}
+        }
+    })();
+    alert(f());
+    alert(g());
+2.自执行函数的预解释
+(function f(){
+    function f(){ return 1; }
+    alert (f());//2
+    function f(){ return 2; }
+})();
+
+3.作用域链
+var a=12;
+function show(){
+    alert(a);//12
+    a=15;
+}
+show();
+alert(a);//15
+
+4.预解释：变量声明早于代码运行
+var a=12;
+function show(){
+    alert(a);//undefined
+    var a=15;
+}
+show();
+alert(a);//12
+5.预解释：变量声明早于代码运行
+var uname = 'jack'
+function change() {
+    alert(uname)//undefined
+    var uname = '珠峰'
+    alert(uname)//'珠峰'
+}
+change()
+6.在没有形参的情况下：函数声明早于变量声明
+function change() {
+    alert(typeof fn) //function
+    function fn() {
+        alert('hello')
+    }
+    var fn
+}
+change()；
+7.带var和不带var的区别；
+function abc(){
+    a=12;//window.a
+    alert(a);//12
+}
+function b(){
+    alert(a)//12
+}
+abc();
+b();
+
+面试题
+1.关于内存释放的面试题
+function fn() {
+        var i = 10;
+        return function (n) {
+            console.log(n + (++i));
+        }
+    }
+    var f = fn();
+    f(15);
+    f(20);
+    fn()(15);
+    fn()(20);
+    fn()(30);
+    f(30);
+2.综合面试题
+考察：this指向；
+    var num = 10;
+    var obj = {
+        num: 20,
+        fn: (function (num) {
+            this.num *= 2;
+            num += 10;
+            return function () {
+                this.num *= 3;
+                num += 1;
+                console.log(num);
+            }
+        })(num)
+    };
+    var fn = obj.fn;
+    fn();
+    obj.fn();
+    console.log(window.num, obj.num);
+
+3.关于this和||的运用；
+var name='珠峰';
+var age=500;
+name=(function(name,age){ //name='珠峰培训'
+    arguments[0]='珠峰培训';
+    age=age||this.age;//window.age=500
+    console.log(name,age); //'珠峰培训',500
+})(name);
+console.log(name,age)//undefined 500
+4.
+var i=6;
+    function fn(){
+        i*=3;
+        return function(n){
+            console.log(n*(++i))
+        }
+    }
+    var f=fn();
+    f(2)
+    fn()(4);
+    f(4);
+    fn()(3);
+5. var ary=[100,200];
+    ~function(ary){
+        ary.length--;
+        ary=[];
+        ary[ary.length]=300;
+        alert(ary)
+    }(ary);
+    alert(ary)
+6.
+function Fn(num){
+        this.x=this.y=num;
+    }
+    Fn.prototype={
+        x:20,
+        sum:function(){
+            console.log(this.x+this.y)
+        }
+    };
+    var f=new Fn(10);
+    console.log(f.sum===Fn.prototype.sum)//true;
+    f.sum();//20
+    Fn.prototype.sum();//NaN
+    console.log(f.constructor)//Object;

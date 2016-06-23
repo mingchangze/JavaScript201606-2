@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[34,28,9,12,26];
+    function quickSort(ary){
+        if(ary.length<=1){
+            return ary;
+        }
+        var num=Math.floor(ary.length/2);
+        var numValue=ary.splice(num,1)[0];
+        var left=[];
+        var right=[];
+        for(var i=0; i<ary.length; i++){
+            if(ary[i]<numValue){
+                left.push(ary[i])
+            }else{
+                right.push(ary[i])
+            }
+        }
+        return quickSort(left).concat([numValue],quickSort(right))
+
+    }
+    console.log(quickSort(ary))
+</script>
+</body>
+</html>

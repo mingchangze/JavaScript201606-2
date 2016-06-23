@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    //children 也可以拿到子元素，但是不兼容IE8；
+    function getChildren(curEle){
+        var ary=[];
+        var aChild=curEle.childNodes;
+        for(var i=0; i<aChild.length; i++){
+            if(aChild[i].nodeType===1){
+                //ary.push(aChild[i]);
+                //ary[ary.length]=aChild[i];
+                ary.splice(ary.length,0,aChild[i]);
+            }
+        }
+        return ary;
+    }
+    var aLi=getChildren(oUl);
+    console.log(aLi.length)
+</script>
+</body>
+</html>

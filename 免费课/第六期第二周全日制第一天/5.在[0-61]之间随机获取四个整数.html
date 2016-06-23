@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //在[0-61]之间随机获取四个整数
+    var ary=[];
+    /*for(var i=0; i<4; i++){
+        var rnd=Math.round(Math.random()*61);
+       // var rnd=Math.floor(Math.random()*62);
+        ary.push(rnd);
+
+    }*/
+    //升级：在[0-61]之间随机获取四个不重复的整数
+    //4次机会  [1,2，]
+    //1 次 1
+    //2 次 2
+    //3 次 2 -》 3-1；
+    //3次  2 -》 3-1；
+    //用for循环实现
+    /*for(var i=0; i<4; i++){//数组中要4个不重复的数，循环4次；
+        var rnd=Math.round(Math.random()*61);//获取[0,61]的随机整数
+        //continue写法；
+        /!*if(ary.indexOf(rnd)!==-1){//说明ary中已经存在这个数；
+            i--; //为了防止数组塌陷；
+            continue;//循环中，本次不执行，以后循环继续执行；
+        }
+        ary.push(rnd);*!/
+
+        //if...else的写法；
+        /!*if(ary.indexOf(rnd)!==-1){//说明ary中已经存在这个数；
+            i--; //为了防止数组塌陷；
+        }else{
+            ary.push(rnd);
+        }*!/
+    }*/
+    while(ary.length<4){//只要数组的长度小于4，就一直找下去；
+        var rnd=Math.floor(Math.random()*62);//[0-61]随机数；
+        if(ary.indexOf(rnd)===-1){
+            ary.push(rnd);
+        }
+    }
+    document.write(ary);
+</script>
+</body>
+</html>

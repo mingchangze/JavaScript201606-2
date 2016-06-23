@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 20px;
+            background: #e1e1e1;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            /*opacity: 0;
+            filter:'alpha(opacity=0)'*/
+            /*visibility: visible;*/
+            visibility: hidden;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //获取ID为div1的元素
+            var oZhufeng=document.getElementById('div1');
+            var oDiv2=document.getElementById('div2');
+            console.dir(oDiv2)
+            //给oDiv1上添加鼠标移入事件，触发一个方法；
+            oZhufeng["onmouseover"]=function(){
+                //方法中让oDiv2元素显示
+                //oDiv2.style.display='block';
+                /*oDiv2.style.opacity=1;
+                 oDiv2.style.filter='alpha(opacity=1)';*/
+                oDiv2["style"]["visibility"]='visible';
+            };
+            //给oDiv1上添加一个鼠标移出的事件
+            oZhufeng.onmouseout=function(){
+                //方法中让oDiv2元素隐藏
+                //oDiv2.style.display='none';
+                /*oDiv2.style.opacity=0;
+                 oDiv2.style.filter='alpha(opacity=0)';*/
+                oDiv2.style.visibility='hidden';
+            };
+        }
+
+    </script>
+
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<div id="div2">技术改变世界</div>
+</body>
+
+</html>
+
+
+
+
+
+

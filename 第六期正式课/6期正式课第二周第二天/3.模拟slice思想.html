@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary1=[7.777,21,3.7,8.7,12.7];
+    //模拟数组的slice克隆方法；
+    Array.prototype.mySlice=function(){
+        var ary=[];
+        for(var i=0; i<this.length; i++){
+            ary.push(this[i]);
+        }
+        /*var ary=[];
+        for(var i=0; i<arguments.length; i++){
+            ary.push(arguments[i]);
+        }*/
+        return ary;
+    }
+    var ary2=ary1.mySlice();
+
+</script>
+</body>
+</html>

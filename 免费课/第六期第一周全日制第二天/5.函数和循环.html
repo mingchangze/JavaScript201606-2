@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input{
+            width: 150px;
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮一" index="0" onclick=""/>
+<input type="button" value="按钮二" index="1" onclick=""/>
+<input type="button" value="按钮三" onclick=""/>
+<input type="button" value="按钮四" onclick=""/>
+</body>
+<script>
+    var aBtn=document.getElementsByTagName('input');
+    console.log(aBtn)
+    /*aBtn[0].index=0;
+    aBtn[0].onclick=function(){
+        alert(this.index)
+    };
+    aBtn[1].index=1;
+    aBtn[1].onclick=function(){
+        alert(this.index)
+    };*/
+    /*//1.循环的速度是最快的，在我们打开页面的时候，循环已经结束
+    //2.如果我们想保留循环中的每个值；就是让一个东西（obj.index=i）跟循环同步进行；
+    for(var i=0; i<aBtn.length; i++){
+        aBtn[i].index=i;
+        alert(aBtn[i].index)
+        aBtn[i].onclick=function(){
+            //当触发元素身上事件的时候，调用一个函数，函数中的this就是当前这个元素；
+            alert(this.index);//拿到当前元素身上的index属性； this.index
+        }
+
+    }
+    //0 1 2 3 4
+    console.log(i)*/
+    /*//需求：点击每个按钮的时候，弹出他对应的索引；
+    for(var i=0; i<aBtn.length; i++){
+        aBtn[i].index=i;//自定义属性
+        aBtn[i].onclick=function(){
+            //alert(i)//当我触发点击事件的时候，循环已经结束，i=4;为了解决i值的问题，我们让一个东西跟循环同步进步，保存每个正常的i值；
+            alert(this.index);
+        }
+    }
+    //循环中，如果有点击事件，触发一个函数，函数中一定不能直接用i；因为，此时，循环早已经结束，i已经是最大值；*/
+    //需求：点击每个按钮的时候，弹出他对应的索引；
+    for(var i=0; i<aBtn.length;i++){
+        aBtn[i].index=i;
+        aBtn[i].onclick=function(){
+            alert(this.index)
+        }
+    }
+
+
+
+
+
+
+
+
+</script>
+</html>
+
+
+
+
+
+

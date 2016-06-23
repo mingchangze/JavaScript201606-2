@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+   // alert(getComputedStyle(oDiv,false).height)//兼容高级浏览器
+    alert(oDiv.currentStyle.height)//兼容低级浏览器；
+</script>
+</body>
+</html>

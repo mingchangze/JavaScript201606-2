@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    Array.prototype.myForEach=function(callback,context){
+        context=context||window;
+        if('forEach' in Array.prototype){
+            this.forEach(callback,context);
+            return;
+        }
+        for(var i=0; i<this.length; i++){
+            if(typeof callback==='function'){
+                callback.call(context,this[i],i,this)
+            }
+        }
+    }
+</script>
+</body>
+</html>

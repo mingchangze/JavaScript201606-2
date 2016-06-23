@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //当函数表达式作为一个参数传给另一个函数的时候，他其实就是回调函数；
+    //1.回调函数执行几次，看另一个函数的条件需要
+    //2.回调函数传参
+    //3.改变this指向的call(context,参1，参2.。。。。);
+    var obj={};
+    function fn(a){
+        for(var i=0; i<3; i++){
+            a.call(obj,1,2)
+        }
+    }
+    function aa(n,m){
+        alert(this+','+(n+m))
+    }
+    fn(aa)
+</script>
+</body>
+</html>
+
+
+
+
+

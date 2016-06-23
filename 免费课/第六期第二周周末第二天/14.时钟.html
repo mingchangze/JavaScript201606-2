@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<!--2016年6月11号 00:00:00；-->
+<script>
+    //1.日期对象
+    //2.定时器
+    function toDou(n){
+        /*if(n>=0 && n<10){
+            return '0'+n;
+        }else{
+            return ''+n;
+        }*/
+        return n>=0 && n<10?'0'+n:''+n;
+        //条件？语句1：语句2；
+    }
+    function clock(){
+        var oDate=new Date();//创建一个日期对象
+        var y=oDate.getFullYear();//获取年份
+        var m=oDate.getMonth()+1;//月份在获取的时候一定要+1;
+        var d=oDate.getDate();//获取日
+        var h=oDate.getHours();//获取小时
+        var min=oDate.getMinutes();//获取分钟
+        var s=oDate.getSeconds();//获取秒数
+        var str=y+'年'+toDou(m)+'月'+toDou(d)+'日'+toDou(h)+':'+toDou(min)+':'+toDou(s);//年月日进行拼接
+        document.body.innerHTML=str;
+
+    }
+    clock();//因为定时器在1000毫秒后才会调用clock函数，所以为了防止页面出现空白，自己提前先手动调用clock函数；
+    clearInterval(timer);//开启一个定时器前，先关闭没用的定时器；
+    var timer=setInterval(clock,1000);
+</script>
+</body>
+</html>

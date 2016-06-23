@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={cc:345,getY:function(){}}
+    var obj2=Object.create(obj);//把obj作为obj2的原型；
+    alert(obj.isPrototypeOf(obj2))//obj 是否在obj2的原型链上；如果obj2.__proto__一层层往上找，一定可以找到obj里的内容；
+   function A(){//构造函数中放私有的属性和方法；
+       this.x=100;
+   }
+   A.prototype=obj;//prototype上放公有的属性和方法；
+    function B(){}
+    B.prototype=obj2;
+    var b=new B;
+    console.dir(b)
+
+</script>
+</body>
+</html>

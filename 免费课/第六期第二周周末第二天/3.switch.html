@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //switch中值的比较是严格比较；=== 值比较+类型比较
+    //== 和 === 区别
+    var i='10';
+    switch (i){
+        case 1:
+            alert('1');
+            break;
+        case 5:
+            alert('5');
+            break;
+        case '10':
+            alert('10');
+            break;
+        default :
+            alert('啥也不是')
+    }
+</script>
+</body>
+</html>

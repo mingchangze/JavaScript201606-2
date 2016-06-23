@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    alert(123)
+    //jsonParse:
+    //想把后台给我们的JSON格式的字符串，变成JSON格式的数据（ 对象）
+    var str='[{"name":"zhufeng"},{"age":8}]'//JSON格式的字符串
+    //var strDate=[{"name":"zhufeng"},{"age":8}];//JSON格式的数据；
+    var strDate=JSON.parse(str);//在IE6,7下不兼容
+    //在IE6,7下 eval('('+str+')')
+    function jsonParse(str){
+        /*var obj;
+        if('JSON' in window){
+            obj=JSON.parse(str);
+        }else{
+            obj=eval('('+str+')')
+        }
+        return obj;*/
+        return 'JSON' in window?JSON.parse(str):eval('('+str+')');
+    }
+</script>
+</body>
+</html>

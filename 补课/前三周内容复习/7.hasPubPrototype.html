@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //判断属性是否是对象上的公有属性
+    //参数 attr obj
+    //返回值：boolean数据类型
+    function hasPubPrototype(attr,obj){
+        return attr in obj && !obj.hasOwnProperty(attr)
+    }
+</script>
+</body>
+</html>

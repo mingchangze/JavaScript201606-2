@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function A(){
+        this.x=100;
+    }
+    A.prototype.showX=function(){};
+    A.prototype.y=200;
+    var a=new A;
+    //alert('Z' in a);
+    //alert(a.hasOwnProperty('y'))//用来判断是否为私有属性；
+    //hasPubProperty：判断是否为公有属性；
+    function hasPubProperty(attr,obj){
+        //必须是对象上的属性 且 不是私有属性；
+        return attr in obj && !obj.hasOwnProperty(attr);
+    }
+    alert(hasPubProperty('showX',a))
+</script>
+</body>
+</html>

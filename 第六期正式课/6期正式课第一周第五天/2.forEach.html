@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=['zhufeng',123,'peixun',23,21];
+    var obj={};
+    //当我们函数表达式作为参数被传进另一个函数的时候，第一反应就是回调函数
+
+    //1.回调函数调用的次数跟ary.length一样；
+    //2.回调函数接收的参数 有3个；
+    //3.forEach这个方法没有返回值
+    //4.回调函数中的this默认是window;
+    //5.forEach中有两个参数，第一个参数是callback； 第二个参数：用来改变this指向的；
+    function aa(item,index,input){//arguments是系统内置的参数机制，它可以打印出接收的每个参数及参数的个数；
+        //console.log(arguments)//当函数调用时，系统传进的实参的个数，是arguments.length
+        console.log(this)
+        //return 123;
+    }
+    var res=ary.forEach(aa,obj);
+    console.log(res)
+</script>
+</body>
+</html>

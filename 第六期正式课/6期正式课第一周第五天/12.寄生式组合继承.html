@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //寄生式组合: call继承+Object.create();
+    function F(){
+        this.x=100;
+    }
+    F.prototype.showX=function(){};
+    function S(){
+        F.call(this)//只继承了私有的；
+    }
+
+    function Tmp(){};
+    Tmp.prototype= F.prototype;//只把父级公有的属性和方法过渡到了一个空类的原型上；
+    S.prototype=new Tmp;
+    S.prototype.constructor=S;
+
+    var p1=new S;
+    console.dir(p1)
+</script>
+</body>
+</html>

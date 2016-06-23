@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            width: 400px;
+            padding:20px;
+            border: 5px solid lightgreen;
+            box-shadow: 4px 4px 10px darkGreen;
+            margin:30px auto;
+
+        }
+        span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: red;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 10px;
+        }
+        li{
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            border-bottom: 1px dashed #ccc;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><span>0</span>从习近平讲话看下一步反腐倡廉工作着力点</li>
+    <li><span>1</span>从习近平讲话看下一步反腐倡廉工作着力点</li>
+    <li><span>2</span>从习近平讲话看下一步反腐倡廉工作着力点</li>
+</ul>
+<script src="json1.js"></script>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].onmouseover=function(){
+            this.style.background='lightBlue';
+        };
+        aLi[i].onmouseout=function(){
+            this.style.background='';
+        };
+    }
+    //思路3：动态创建+文档碎片
+    //他只引发一次DOM回流，而且可以保留原来元素身上的事件；
+    var frg=document.createDocumentFragment();//文档碎片
+    for(var i=0; i<ary.length; i++){
+        var oLi=document.createElement('li');
+        oLi.innerHTML='<span>'+(i+3)+'</span>'+ary[i].desc;
+        frg.appendChild(oLi);
+    }
+    oUl.appendChild(frg);
+    frg=null;
+    //思路2：动态创建，循环中每次插入---缺点：每循环一次，就会DOM回流一次，耗性能；
+    //优点：可以保留以前元素身上的事件
+    /*for(var i=0; i<ary.length; i++){
+        var oLi=document.createElement('li');
+        oLi.innerHTML='<span>'+(i+3)+'</span>'+ary[i].desc;
+        oUl.appendChild(oLi);
+    }*/
+    //思路:1：字符串拼接
+    /*var str='';
+    for(var i=0; i<ary.length; i++){
+        str+='<li><span>'+(i+3)+'</span>'+ary[i].desc+'</li>'
+    }
+    //oUl.innerHTML+=str;
+    oUl.innerHTML=oUl.innerHTML+str;*/
+    //缺点：相当于把页面中的内容拿出来，跟我们已经拼接好的字符串str再进行字符串拼接；最后拿到新拼接好的字符串把他转化为标签，重新放入页面中；所以，以前页面中元素身上的事件就都没有了；
+    //优点：只引发一次DOM回流
+    //工作中用的最多的就是字符串拼接；
+    //DOM回流：当页面中的HTML发生变化的时候，会对页面中的所有内容都重新渲染；
+</script>
+</body>
+</html>

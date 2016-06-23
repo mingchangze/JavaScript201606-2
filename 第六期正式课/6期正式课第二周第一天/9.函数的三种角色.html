@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Fn(){
+        this.x=100;
+        x=200;
+        alert(x)
+    }
+    Fn.prototype.showX=function(){
+        alert(123)
+    }
+    /*var f=new Fn;//类和实例
+    f.showX();*/
+    //Fn();// 普通函数
+    Fn.aa=123;
+    Fn.showA=function(){
+        alert(456)
+    }
+    Fn.showA();
+</script>
+</body>
+</html>

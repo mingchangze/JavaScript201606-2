@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var strCode='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    /*var ary=[];
+    var str='';
+    while(ary.length<4){
+        var rnd=Math.round(Math.random()*61)
+        if(ary.indexOf(rnd)===-1){
+            ary.push(rnd)
+            str+=strCode.charAt(rnd)
+        }
+    }
+    document.write(str)*/
+    var str='';
+    while(str.length<4){
+        var rnd=Math.round(Math.random()*61);
+        if(str.indexOf(strCode.charAt(rnd))===-1){
+            str+=strCode.charAt(rnd);
+        }
+    }
+    document.write(str)
+</script>
+</body>
+</html>

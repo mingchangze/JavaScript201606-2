@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var str='sdlfkjsl12233skdl456fjsdlkf789lsdkjflks345';
+    var ary=[];
+    var tmp='';
+    /*for(var i=0; i<str.length; i++){
+        if(!isNaN(str.charAt(i))){
+            tmp+=str.charAt(i);
+        }else{
+            if(tmp){
+                ary.push(tmp);
+                tmp='';
+            }
+        }
+    }
+    if(tmp){
+        ary.push(tmp);
+        tmp='';
+    }
+    alert(ary)*/
+    alert(str.match(/\d+/g));
+
+</script>
+</body>
+</html>

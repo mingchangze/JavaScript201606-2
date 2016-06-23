@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //功能：任意两个数的求和
+    /*function fn(n,m){//函数定义阶段，括号中的参数--形参
+        alert(n+m);
+    }
+    fn(1,2)*/
+    //需求：任意个参数求和
+    function fn(){
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            var cur=arguments[i];//保证cur必须是个数字；
+            if(!isNaN(cur)){//过滤有效数字
+                total+=Number(cur); //防止字符串拼接；
+            }
+
+        }
+        /*return function fn(){
+            alert(123456);
+        };*/
+        return total;
+        alert(123)
+    }
+    var num=fn(1,2,'3','3px');//num这个变量，实际上接收的就是total;
+    console.log(num)
+    /*num()*/
+    //alert(isNaN('3'))//在isNaN中其实默认走了两步：1）Number() 2)才是判断是否为非有效数字
+</script>
+</body>
+</html>

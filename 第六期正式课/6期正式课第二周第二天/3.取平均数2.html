@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function average(){
+        //数组排序
+        [].sort.call(arguments,function(a,b){
+            return a-b;
+        });
+        /*思路1：直接截取成数组，以后针对数组进行操作；
+        var ary1=Array.prototype.slice.call(arguments,1,arguments.length-1);
+        console.log((eval(ary1.join('+'))/ary1.length).toFixed(2))*/
+        //思路2：一直用call思想把类数组转成数组，让他可以使用数组的方法；
+        [].shift.call(arguments);
+        [].pop.call(arguments);
+        console.log((eval([].join.call(arguments,'+'))/arguments.length).toFixed(2))
+
+    }
+    average(7.777,21,3.7,8.7,12.7)
+</script>
+</body>
+</html>

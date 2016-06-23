@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj=Object.create(obj2);//把obj2做为obj的原型；
+    //比如有一个类Fn,obj2就是这个Fn类的原型，obj就是这个类的实例；
+    function myCreate(o){
+        function Fn(){};//类 构造函数
+        Fn.prototype=o;//给类添加原型 o
+        return new Fn;//返回类的实例
+    }
+    var obj=myCreate(obj2);
+
+</script>
+</body>
+</html>

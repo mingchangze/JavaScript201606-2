@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="ul1" class="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script>
+    /*var oUl=document.getElementById('ul1');
+    var oUl=document.getElementsByClassName('ul1')[0];
+    var oUl=document.getElementsByTagName('ul')[0];*/
+    var oUl=document.querySelector('.ul1');
+    /*var oUl=document.querySelectorAll('ul')[0];*/
+    //console.log(oUl)
+    (function(){
+        //getChildren：获取子元素
+        function getChildren(curEle){
+            var aChild=curEle.childNodes;
+            var ary=[];
+            for(var i=0; i<aChild.length; i++){
+                if(aChild[i].nodeType===1){
+                    ary.push(aChild[i]);
+                }
+            }
+            return ary;
+        }
+        //prev:获取上一个哥哥元素节点
+        function prev(curEle){
+            if('previousElementSibling' in curEle){
+                return curEle.previousElementSibling
+            }
+            var pre=curEle.previousSibling;
+            while(pre&&pre.nodeType!==1){
+                pre=pre.previousSibling;
+            }
+            return pre;
+        }
+        //给外面暴露一个接口：
+        window.prev=prev;
+        window.aa=getChildren;
+    })();
+    var aLi=aa(oUl);
+    console.log(prev(aLi[2]))
+</script>
+</body>
+</html>

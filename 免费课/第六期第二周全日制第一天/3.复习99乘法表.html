@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+            font-size: 40px;
+        }
+        li{
+            height: 40px;
+            cursor: pointer;
+            color: #333;
+        }
+        li span{
+            width: 140px;
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+        }
+        li.bg0{
+            background: lightblue;
+        }
+        li.bg1{
+            background: linen;
+        }
+        li.bg2{
+            background: lightgoldenrodyellow;
+        }
+        li.changeBg{
+            background: darkmagenta;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul"></ul>
+<script>
+    var oUl=document.getElementById('ul');
+    var aLi=oUl.getElementsByTagName('li');
+    var oldBg=null;
+    //1.搭建html结构，并写出99乘法表
+    str='';
+    for(var i=1; i<=9; i++){//i 代表每一行； li <li><span></span></li>
+        str+='<li>';
+        for(var j=1; j<=i; j++){//j代表每一列； span
+            str+='<span>'+(j+'*'+i+'='+j*i)+'</span>';
+        }
+        str+='</li>';
+    }
+    oUl.innerHTML=str;
+    //2.隔行换色
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].className='bg'+i%3;//%的小技巧：有几种情况就%几；
+        aLi[i].onmouseover=function(){
+            oldBg=this.className;
+            this.className='changeBg';
+        };
+        aLi[i].onmouseout=function(){
+            this.className=oldBg;
+        };
+    }
+</script>
+</body>
+</html>

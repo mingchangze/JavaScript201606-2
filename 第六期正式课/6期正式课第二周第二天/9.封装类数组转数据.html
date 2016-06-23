@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');//类数组
+   // var ary=[12,31,34,24];
+    /*Array.prototype.slice=function(){
+     var ary2=[];
+     for(var i=0; i<this.length; i++){
+     ary2.push(this[i]);
+     }
+     /!*var ary2=[];
+     for(var i=0; i<arguments.length; i++){
+     ary2.push(arguments[i]);
+     }*!/
+     }
+     //Array.prototype.slice.call(arguments) 类数组转数组
+     //ary.slice();*/
+   // var a=Array.prototype.slice.call(aLi);
+    function listToArray(arg){
+        var ary=[];
+        try{
+            ary=Array.prototype.slice.call(aLi);
+        }catch(e){//不兼容的时候，走catch
+            for(var i=0; i<arg.length; i++){
+                ary.push(arg[i])
+            }
+        }
+        return ary;
+    }
+</script>
+</body>
+</html>

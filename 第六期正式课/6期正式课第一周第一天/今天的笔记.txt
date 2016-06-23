@@ -1,0 +1,61 @@
+﻿1.git的一些常用命令
+    mkdir 创建一个新的文件夹
+    cd 文件夹 --进入一个文件夹
+    ls - 显示文件夹下的内容（可视内容）
+    ls -al 显示文件夹下所有的内容（可视的内容和隐藏的内容）
+2.git 工作流的操作
+    1.在本地新建一个文件夹
+    2.进入到这个夹 左手shift+右键 -》进入命令行
+    也可以直接右键 git Bash here
+    3.mkdir 测试文件夹 leilei
+    也可以手动创建一个文件夹
+    4.进入测试文件夹 -- cd leilei(文件夹名字)
+    5.把本地仓库初始化为一个git的本地仓库 -- git init
+    因为：只有把本地仓库初始化为git仓库后，才可以用git来操控；
+    6.给本地文件夹添加新内容
+    7.git add . 这是把所有的文件都保存到暂存区
+        git add -A 这是把所有的文件都保存到暂存区
+        git add aa.txt 把指定的文件添加到暂存区
+    8.git commit -m"注释的内容" 这是把暂存去的内容添加到历史区
+    9.添加一个远程自己的仓库 git remote add origin 地址；
+        备注：如何查看自己本地连接了哪些远程仓库？
+        git remote -v
+    10.把本地文件推送到远程仓库 git push origin master
+    把本地仓库的内容推送到远程origin地址的master分支上去；
+3.更新老师讲义的步骤
+    1.登录你们自己的github；然后把老师讲义的地址，复制到你们github的地址栏
+    https://github.com/zhufengpeixun/JavaScript201606
+    2.点击老师讲义右侧的fork；（克隆一份一模一样的代码到自己的远程仓库）
+    3.把自己的远程仓库克隆到自己的本地仓库；
+    git clone https://github.com/你们自己的github用户名/JavaScript201606-1.git
+    4.当老师讲义有更新的时候；
+    1）建立与老师远程仓库的连接通道
+    git remote add teacher https://github.com/zhufengpeixun/JavaScript201606
+    2)更新与老师远程仓库的连接通道
+    git remote update teacher
+    3)把更新的内容拉到本地
+    git pull teacher master
+    4）把本地更新的内容，推送到自己的远程仓库上去 origin
+    git add ./-A 添加到暂存区
+    git commit -m"注释" 添加到历史区
+    git push origin master
+    5)可以给老师学生作业文件夹下添加本组的作业
+    git add ./-A 添加到暂存区
+    git commit -m"注释" 添加到历史区
+    git push origin master
+    6）点击 new pull request
+       点击 create pull request
+       标题栏：谁谁的作业
+       内容：老师，我发现一种更简单的方式；
+        create pull request
+   忠告：down下来别人的作业后，不要随便修改；否则会引起冲突；
+
+
+
+
+
+
+
+
+
+

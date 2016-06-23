@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={name:'zhufeng',showY:function(){}}
+    function A(){
+        this.x=100;
+    }
+    //A.prototype.showX他是系统给他分配的原型空间；
+    A.prototype.showX=function(){};//他上面一定有constructor
+    A.prototype=obj;
+    A.prototype.constructor=A;
+    var a=new A;//一定有__proto__;
+    console.log(a.constructor)//如果没有给A这个类单独设置constructor，那么，a.constructor就会通过__proto__一级级往上找，最终在Object.prototype上找到constructor这个属性--指向Object；--这就没法判断a这个实例，到底属于哪个类的细分；
+</script>
+</body>
+</html>

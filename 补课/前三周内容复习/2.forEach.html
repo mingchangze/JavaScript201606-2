@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //1.回调函数被调用了几次？ 回调函数调用的次数跟数组的长度一样的；
+    //2.回调函数是否有参数？有几个参数？
+    //3.this指向；
+    //4.返回值:forEach（）没有返回值，因为系统内置方法中，没有接收并返回我们给回调函数中传的返回值；
+    //forEach()这个方法一般情况不会修改原始数组，但我们可以通过input去修改原始数组；
+    var obj={};
+    var ary=[12,34,56,28];
+    var res=ary.forEach(function(item,index,input){//forEach 总共有两个参数；第二个参数就是用来改变this指向的；
+        //console.log(arguments)//有三个参数：1.数组中每一项内容 2.索引 3.原始数组；
+        //console.log(this);
+        input[index]=item*100;
+    },obj)
+    console.log(ary)
+</script>
+</body>
+</html>

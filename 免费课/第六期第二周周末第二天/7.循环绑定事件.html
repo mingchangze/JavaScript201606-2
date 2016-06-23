@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input{
+            width: 150px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+<input type="button" value="按钮3"/>
+<input type="button" value="按钮4"/>
+<input type="button" value="按钮5"/>
+<input type="button" value="按钮6"/>
+<script>
+    var aBtn=document.getElementsByTagName('input');
+    //1.自定义属性
+    /*for(var i=0; i<aBtn.length; i++){
+        aBtn[i].index=i;//通过自定义属性，把正确的i值保存在标签的属性值上
+        aBtn[i].onclick=function(){
+            alert(this.index)
+        }
+    }*/
+    //2.闭包：当函数执行的时候，会形成一个私有作用域，保护里面的变量不受外界的干扰，函数的这种保护机制叫做闭包；
+    for(var i=0; i<aBtn.length; i++){
+        (function(index){
+            aBtn[index].onclick=function(){
+                alert(index)
+            }
+        })(i);
+    }
+</script>
+</body>
+</html>

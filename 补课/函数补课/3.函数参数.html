@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={name:'zhufeng',age:8}
+    function fn(n){
+       // console.log(n)
+        n();
+        return;
+        n();
+        n();
+    }
+    function fn2(){
+        alert(123)
+    }
+    fn(fn2)
+</script>
+</body>
+</html>

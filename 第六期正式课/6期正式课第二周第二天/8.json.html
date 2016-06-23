@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={"name":'zhufeng',"age":8}//对象的属性名上，如果有""号，他就是json;反之就是普通对象；使用方式是一样的；
+    //JSON，他是一种数据格式；用来进行前后台数据交互；
+    //1.JSON是window上的一个对象，里面包含两个方法
+    /*
+    * 1.JSON.parse(jsonStr);jsonStr:json格式的字符串 功能：把JSON格式的字符串转成JSON格式的数据；
+    * 2.JSON.stringify(jsonObj) 把JSON格式的数据转成JSON格式的字符串；
+    * */
+    var str='[{"name":"zhufeng","age":8},{"name":"zhufeng1","age":8},{"name":"zhufeng2","age":8}]';
+   // console.log(JSON.parse(str))//问题 IE6,IE7不兼容
+    //console.log('JSON' in window)
+    var data=eval('('+str+')')//IE6,IE7用eval来解析数据
+    console.log(data)
+   // console.log(JSON.stringify(ary))
+    /*
+    * '[
+     {"name":'zhufeng',"age":8},
+     {"name":'zhufeng1',"age":18},
+     {"name":'zhufeng2',"age":28}
+     ]'
+    * */
+</script>
+</body>
+</html>

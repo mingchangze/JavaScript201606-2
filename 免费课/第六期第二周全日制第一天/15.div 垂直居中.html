@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            width: 200px;
+            height:200px;
+            position: absolute;
+            left:0;
+            top:0;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var clientW=document.documentElement.clientWidth||document.body.clientWidth;
+    var clientH=document.documentElement.clientHeight||document.body.clientHeight;
+    var oDiv=document.getElementsByTagName('div')[0];
+    oDiv.style.left=(clientW-200)/2+'px';
+    oDiv.style.top=(clientH-200)/2+'px';
+</script>
+</body>
+</html>

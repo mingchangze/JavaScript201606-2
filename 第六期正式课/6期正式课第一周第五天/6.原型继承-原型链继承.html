@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //原型链继承：把父类的私有+公有的属性和方法，都作为子类公有的属性；
+    //核心：不是把父类私有+公有的属性克隆一份一模一样的给子类的公有吧；他是通过__proto__建立和子类之间的原型链，当子类的实例需要使用父类的属性和方法的时候，可以通过__proto__一级级找上去使用；
+    function F(){//父类；
+        this.x=100;
+        this.y=300;
+    }
+    F.prototype.showX=function(){
+        alert(123);
+    };
+    function S(){//子类；
+        this.y=200;
+    }
+    S.prototype=new F;//子类公有方法上继承父类私有+公有的属性
+    S.prototype.constructor=S;//添加子类constructor指向
+    var p1=new S;
+    var p2=new S;
+    console.dir(p1)
+    /*
+    * 私有属性：y:200
+    * __proto__:
+    *   constructor:S;
+    *   x:100;
+    * __proto__:
+    *   constructor:F;
+    *   showX:function(){}
+    *
+    *
+    * */
+    //p1.__proto__.__proto__.showX();//跳过了私有属性的查找，直接到公有属性上去找
+    //p1.showX();//会根据原型链一级级的往上查找；
+    //S.prototype.__proto__.showX()
+    //F.prototype.showX();
+    //alert(p1.y)
+    p1.__proto__.__proto__.showX=function(){
+        alert('456789')
+    }
+    p1.showX();
+    p2.showX();
+
+</script>
+</body>
+</html>

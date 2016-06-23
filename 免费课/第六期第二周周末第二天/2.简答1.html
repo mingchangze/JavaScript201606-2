@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //continue 跳出本次循环，以后循环继续
+    //break 直接跳出循环，以后不再循环了；
+    //跳出循环 :continue break;
+    //跳出函数；阻断函数执行：return
+    //i=8
+    for(var i=0; i<10; i++){
+        if(i<=5){
+            i++;//5
+            continue;
+        }
+        if(i>=5){
+            i=i+2;
+            break;
+        }
+        alert(i)
+    }
+    alert(i)
+</script>
+</body>
+</html>

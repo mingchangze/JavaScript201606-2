@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={name:'zhufeng',age:8}
+    function fn(n,m){
+        alert(n+m);
+    }
+    console.log(fn.constructor)
+    fn.call(obj,1,2);
+    //第一个参数用来改变this指向；
+    //第二个参数开始就相当于给call前面的函数进行一个个的传参；
+</script>
+</body>
+</html>

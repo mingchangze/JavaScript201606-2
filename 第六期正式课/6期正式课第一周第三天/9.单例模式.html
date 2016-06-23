@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script src="utils.js"></script>
+<script src="heaer.js"></script>
+<script>
+    /*var person1={
+        name:'zhufeng',
+        age:8
+    }
+    var person2={
+        name:'zhufeng1',
+        age:18,
+    }
+    var person3={
+        name:'zhufeng2',
+        age:18,
+    }*/
+    var utils={//基础库
+        getByClass:function(){},
+        firstChild:function(){},
+        toDou:function(){}
+    };
+    var header={
+        tip:function(){
+            //各模块之间的相互调用： 模块名.属性名
+            var aLi=utils.getByClass();
+            //本模块之间的相互调用；
+            this.banner();
+
+        },
+        banner:function(){
+
+        }
+
+    }
+    var center={
+        banner:function(){
+            var aLi=utils.getByClass();
+        },
+        tip:function(){
+
+        }
+
+    }
+    var footer={
+
+    }
+</script>
+</body>
+</html>

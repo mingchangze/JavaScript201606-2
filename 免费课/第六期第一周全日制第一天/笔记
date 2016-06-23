@@ -1,0 +1,245 @@
+张蕾 18611959267 这也是我的微信号；397536369
+1.前端
+HTML+css 5K
+html+css+query 9K
+html+css+js 10K--17k
+html+css+js+node 18-19k      平台
+2.工作流程：
+产品- UI(设计师)-前端（静态页面-动态UI效果-数据交互）-----产品完了-测试-上线-跟踪测试-改版
+               后台（数据库，后台技能PHP,NODE,JAVA）-
+
+3.JS是用来干什么的：
+    1）他就是用来操作css的--UI效果
+    2）ajax获取数据
+4.JS主要分为三部分
+ECMAScript:语法 变量，命名，循环，数据类型，判断等等
+DOM:document object model 文档对象模型 操作DOM的；
+BOM:browser object model 浏览器对象模型 操作window的；
+5.JS热身运动
+    实现思路：
+            1）display : block none;
+            2)opacity: 1 0;
+            3)visibility:hidden visible
+            4)定位
+            5）margin
+            。。。。
+    实现步骤：
+    当鼠标移入oDiv1时，让oDiv2显示；
+    当鼠标移出oDiv1时，让oDiv2隐藏；
+
+6.页面由三部分组成
+HTML：超文本标记语言--打框架- 结构
+css:层叠样式表--加样式--样式
+javascript:轻量级的脚本语言--实现功能--行为
+行为样式结构三者相分离
+7.JS引入方式
+CSS引入方式：
+    1.行内
+    2.内嵌
+    3.外链
+JS引入方式
+    1.行内：<div id="div1" onclick="alert(3-2)">珠峰培训</div> JS代码写在双引号里；但是不建议使用行内；
+    2.内嵌:script可以放在页面的任何一个地方：一般放在body最后或者head里面；但是，放在以上两种中是有区别；
+    注意：
+    如果放在head里，必须加系统的onload:window.onload事件；
+    如果放在body后面，不需要给JS中window.onload;
+    <script>
+        alert(123)
+    </script>
+    3.外链 <script src="1.js"></script>---项目开发中都用外链；
+    注意：如果引入外链的话，在两个script中一定不能再写代码，否则，肯定不会执行
+8.事件：
+鼠标事件：
+    onclick:点击事件
+    onmouseover:当鼠标移入的时候
+    onmouseout:当鼠标移出的时候
+键盘事件：
+系统事件：
+    window.onload:当页面加载完成的时候
+表单事件：
+。。。
+
+9.JS输出方式：--目的是为了调试
+1）alert：在浏览器中弹出需要的内容；
+2）console.log()：在控制台输出；
+3）console.dir():可以详细的打印出对象上对应的属性和方法；
+4)console.table():把对象以表格的形式打印出来；
+5)document.write:可以把要输出的内容直接打印在页面上：
+6)innerHTML
+obj.innerHTML='zhufengpeixun';
+但需要注意：在window.onload事件中，如果已经有了很多内容，这时候，输出document.write()；会彻底的清空页面；所以，不要在window.onload中写document.write；
+
+控制台页卡分析：
+    elements:调试页面的结构和样式；调好了以后，直接复制到我们的css样式表中；
+    console:用来打印我们的输出日志；
+    netWork:发送我们请求的所有文件
+    resources:存储我们的所有文件；
+
+10.JS获取元素的方式：
+1）document.getElementById
+   文档     得到 元素   通过 ID
+   在文档中通过ID来获取元素；
+2）context.getElementsByTagName('li');
+    在文档中通过标签名来获取元素；
+    context:上下文，起限制范围的作用；
+11.JS命名规范
+匈牙利命名规范就是驼峰式命名规范
+类型	前缀	类型	实例
+数组	a	Array	aItems
+布尔值	b	Boolean	bIsComplete
+浮点数	f	Float	fPrice
+函数	fn	Function	fnHandler
+整数	i	Integer	iItemCount
+对象	o	Object	oDiv1
+正则表达式	re	RegExp	reEmailCheck
+字符串	s	String	sUserName
+变体变量	v	Variant	vAnything
+1）o开头--代表一个对象
+12.对象由两部分构成：
+属性：元素身上固有的特征
+方法：能干什么事情
+属性和方法的简单区别：属性没括号，方法有括号；
+13.函数：
+1）定义
+2）调用
+函数包括：有名字的函数和匿名函数；
+函数的写法：
+function 函数名(){
+   alert(123)
+}
+14.变量：
+var aa=xxx;
+var 定义变量
+变量，就是物体的别称（别名），见到变量，就像见到物体本身一样；
+15.属性操作：
+操作属性必须通过"."或者是[""];
+"."是 的 的意思
+例如：oDiv2.style.visibility='visible';
+oDiv2的style属性上的visibility赋值为'visible';
+=号是赋值的意思；
+16.命名规范
+17.JS中的数据类型：包括 基本数据类型和引用数据类型；
+基本数据类型：
+    字符串string;  数字 number; 布尔 boolean;  null; undefined
+引用数据类型：
+    对象数据类型：数组; object ;new oDate ;/^( +)|( +)$/
+    函数数据类型 function(){}
+数据类型检测：
+    1)typeof
+    他用来检测基本数据类型；
+    通过typeof拿到的东西，都被字符串包裹着:外面是引号，里面才是我们真正的数据类型；"string" "number"
+    typeof的局限性：他不能用来检测对象数据类型
+    2)obj.constructor ：判断当前元素所属的函数类型；通过函数名就能看到这个元素是什么类型的对象； function Array(){};
+    3)ary instanceof Array：判断ary 是不是 Array的一个具体实例；
+    4)Object.prototype.toString.call(); "[object String]"
+
+
+18.字符串："string"
+1.用单引号或者双引号包裹的1-多个字符，都是字符串；
+2.习惯：一般情况，属性用双引，字符串用单引；
+3.字符串和变量名的区别：字符串有引号，变量没有引号
+alert(va)---变量
+alert('va')---字符串
+error: zhufeng is not defined --你这个变量没有被定义
+4.字符串的索引（下标）是从0开始；
+5.字符串长度通过length属性来拿到；
+任务：回去预习字符串常用属性和方法；
+
+6.当字符串和数字进行相加的时候，“+”的作用是字符串拼接
+数学运算中，除了"+"有字符串拼接的功能，其他-,*,/都是正常运算；
+
+19.数字类型：0 正数 负数 小数 "number"
+1)如何把字符串转成数字数据类型；
+严格转换：Number();
+    NaN: not a number 不是一个数字；
+    NaN跟任何值都不想等，包括他自己，也不相等；
+    NaN出现的情况：
+    1）转换失败的时候出现NaN；
+    2）不合法运算，也会出现NaN;
+    isNaN(); 检测是否为非有效数字；非有效数字-true； 有效数字：false；
+非严格转换
+    parseInt():只能进行整数的转换
+    parseFloat():能进行小数的转换；
+20.boolean:true false
+Boolean();
+    规律：除了 0 NaN '' null undefined 为false之外，其他都为真true；
+
+21.null和undefined
+区别：
+1）
+null:现在没有，以后会有；
+undefined:现在没有，以后也不会有；
+2）隐式转换：
+null:默认会转为数字0；--typeof null->"object"
+undefined:默认会转为NaN;--typeof nudefined->"undefined"
+22.引用数据类型：
+1）对象数据类型 object new Date; Array--[1,'珠峰',34]; RegExp(正则)-- /\d+/....
+    1)对象的增删改查；
+        1.增加、更改--看情况来处理
+        obj.name=xxx;(当name属性不存在的时候，他是增加，否则，它是更改)
+        2.删除
+        obj.name=null;--假删除
+        delete obj.name； --真删除
+        3.查
+        alert(obj.name);
+    2)对象有不重名的特性；
+    3）对象的属性名如果为数字的话
+    思考：大家回去试试；
+    4)对象中的属性如果没定义--undefined； 变量如果没定义--报错
+2）函数数据类型
+函数数据类型
+23.循环
+1）for循环--for循环用在很多地方
+    1)循环包含四部：
+        1.定义 var i=0;
+        2.条件 i<ary.length
+        3.语句 大括号{}中的语句进行执行
+        4.自增 i++;
+    var ary=[123,'zhufeng',true,function(){
+            alert('789')
+        }];
+    for(var i=0; i<ary.length; i++){
+        //alert(i)//0,1,2,3
+        console.log(ary[i])
+    }
+    2)循环的停止条件：当条件不成立的时候，跳出循环；
+2）for in 循环--只用于对象循环；
+for(var attr in obj){
+    console.log(attr)-->打印出的是属性名
+    obj[attr]-->打印出的是属性值；
+}
+3）while循环
+var ary=[123,'zhufeng',true,function(){
+        alert('789')
+}];
+var i=0;//定义
+while(i<ary.length){//条件
+    console.log(ary[i]);//执行语句
+    i++;//自增
+}
+
+for 循环和while循环的区别：
+    for循环用于长度已知的情况
+    while循环用于长度未知的情况；
+
+1.思考
+2.笔记整理和复习
+3.做作业1个
+4.预习
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

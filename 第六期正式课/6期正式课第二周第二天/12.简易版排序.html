@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <!--<li>50</li>-->
+</ul>
+<script src="utils.js"></script>
+<script src="json.js"></script>
+<script>
+    //DOM映射：1.HTML页面结构中的标签（HTML）  2.获取到的元素集合（js）
+    //当页面中的HTML标签发生变化的时候，我们不需要重新获取，JS中的元素集合就会对应的发生变化；
+    //当我们用JS操作页面中的内容的时候，页面中的标签也会相应的发生变化；他们两个互相影响；
+    //1.一定要知道最终要查到页面中的哪个容器中：Ul
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    //2.想知道要创建多少个li:通过循环数据；
+    var frg=document.createDocumentFragment();
+    for(var i=0; i<jsonAry.length; i++){
+        //每次循环的时候，动态创建一个li元素；
+        var oLi=document.createElement('li');
+        oLi.innerHTML=jsonAry[i].age;
+        frg.appendChild(oLi);//每次循环中创建的li元素都放入frg这个篮子中；
+    }
+    //等循环结束时，frg这个篮子就装满了，一次性的把所有篮中的内容，都放入oUl这个页面的标签中；
+    oUl.appendChild(frg);
+    frg=null;
+    //想实现排序需要3步骤：
+    //1.类数组转数组；
+    var ary=utils.listToArray(aLi);
+    //2.数组排序sort
+    ary.sort(function(a,b){
+        a= parseInt(a.innerHTML);
+        b= parseInt(b.innerHTML);
+        return a-b;
+    });
+    //3.把排序好的数组内容，重新插入页面
+    var frg=document.createDocumentFragment();
+    for(var i=0; i<ary.length; i++){
+        frg.appendChild(ary[i])
+    }
+    oUl.appendChild(frg);
+
+</script>
+</body>
+</html>

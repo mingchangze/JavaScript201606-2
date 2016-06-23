@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //基本数据类型：是对值的操作；如果把值重新赋给第二个变量，相当于把这个值复制了一份给第二个变量；从此，第二变量的值跟第一个再无任何关系；
+    //栈内存：提供了供JS代码执行的环境；里面可以存基本数据类型的值；
+    //堆内存：就是用来存储引用数据类型的数据的；
+    //关于引用数据类型的执行步骤
+    //对象创建的三步骤
+    /*
+    * 1.开辟一个空间地址
+    * 2.把对象中的属性名和属性值都放在这个空间中；
+    * 3.把空间地址，赋值给变量名；
+    * */
+    /*var str=123;
+    var str2=str;
+    str2=str2-2;
+    console.log(str2)
+    console.log(str)*/
+    var obj1={name:'zhufeng',age:8};
+    var obj2=obj1;
+    obj2.sex='你猜';
+    console.log(obj2);
+    console.log(obj1);
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

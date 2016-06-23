@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input{
+            width: 150px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+<input type="button" value="按钮3"/>
+<input type="button" value="按钮4"/>
+<script>
+    //需求：点击任何一个按钮弹出对应的索引
+    var aBtn=document.getElementsByTagName('input');
+    //思路1：通过自定义属性实现
+    /*for(var i=0; i<aBtn.length; i++){
+        aBtn[i].index=i;
+        aBtn[i].onclick=function(){
+            alert(this.index)
+        }
+    }*/
+    //思路2：通过闭包实现
+    for(var i=0; i<aBtn.length; i++){
+       // alert(i)
+        (function (aa){
+            aBtn[aa].onclick=function(){
+                alert(aa)
+            }
+        })(i)
+    }
+
+
+    /*var fn=function(){
+        alert(1234)
+    }
+    fn()*/
+</script>
+</body>
+</html>

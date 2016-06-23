@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={showY:function(){}}
+    function A(){
+        this.x=100;
+    }
+    A.prototype.showX=function(){};
+    A.prototype=obj;
+    A.prototype.constructor=A;
+    var a=new A;
+    console.dir(a)
+    //alert(a.__proto__.showX=== a.showX)
+    //a.__proto__==》A.prototype 原型空间 也找到的是公有的showX
+    //a.showX会先在自己得私有属性上进行查找；没找到，继续通过__proto__去当前实例所属类的原型上进行查找，原型上都放的是公有的属性和方法；这会找到，showX他就是公有的方法
+    //alert(a.showX=== A.prototype.showX)
+   // alert(a.__proto__.showX=== A.prototype.showX)
+
+    console.log(a.constructor)
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

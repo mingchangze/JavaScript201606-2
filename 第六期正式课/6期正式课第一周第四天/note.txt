@@ -1,0 +1,83 @@
+﻿1.预解释无节操
+    1.自执行函数不需要预解释，当代码执行到他的时候，声明+定义+调用同步完成
+    2.已经声明过的变量，不需要重新声明，但是会重新赋值
+    3.=左边带var的只声明不定义
+    4.if语句无论条件是否成立，都会进行预解释
+    5.return后面的返回值不进行预解释，但是，return下面的语句虽然不执行，但会进行预解释；
+2.数据类型检测的方式
+    1.typeof
+    2.instanceOf
+    3.constructor：类 构造函数
+    4.Object.prototype.toString.call();
+
+3.原型基础
+    1.每一个函数数据类型，都天生自带一个属性，叫prototype，它是一个对象
+    2.prototype这个对象上天生自带一个属性constructor,他指向当前所属类；
+    3.每个对象上都带一个属性__proto__,他指向当前实例所属类的原型；
+    注意，自己创建的对象上没有constructor这个属性；
+4.原型链：比如查找a.showX;
+    1）现在自己的私有属性上查找，找到的话就是私有属性；
+    2）找不到，通过__proto__继续往所属类的原型上找，如果找到，就是公有的属性；
+    3）找不到，继续通过__proto__一直往上找。。。。找到Object.prototype上，如果还没有，undefined;
+5.几个反应：重中之重；
+    1.一看到函数名首字母大写：构造函数--》构造函数中放的都是私有的属性和方法；
+    2.一看A.prototype：原型--》原型上放的都是公有的属性和方法；
+    3.一看到A.prototype={}-->这是自己创建的原型对象，上面一定没有constructor,这个实例就不能进行类的细分；
+    4.一看到__proto__：这是进行原型链的查找；
+
+6.//批量添加A这个类的公有属性和方法；
+      A.prototype={
+          constructor:A,
+          show1:function(){
+              alert(123)
+          },
+          show2:function(){},
+          show3:function(){},
+      };
+
+  注意：关于系统内置类不可以批量操作，这是系统内置类的自我保护机制；但是，可以一个一个操作；
+7.为什么学习原型：
+    1）可以知道系统内置类上的所有属性和方法；方便自己拓展学习
+    2）可以给系统内置类上扩展一些公有的方法和属性；
+8.关于链式操作
+为什么能进行链式操作？因为每个方法调用后必须得有一个返回值，并且，这个返回值一定得是数组，才能继续通过点调用数组的其他方法；
+9.call()  方法，他在Function.prototype这个公有空间中，所以，每个函数实例都可以call方法；
+作用:call()中的第一个参数：用来改变this执行；
+    call()中从第二个参数开始，每个参数用逗号隔开，都是用来给函数中一个个传参的；
+
+10.关于对象属性的判断--返回值：boolean值
+    1）in 用来判断这个属性是否是对象上的属性：公有属性和私有属性；
+    2）hasOwnProperty() 用来判断是否为私有属性
+    3）需求：如果判断是否为公有属性？hasPubproperty
+11.obj.isPrototypeOf(obj2) 判断obj是否在obj2的原型链上；返回的也是boolean值；
+12.var obj2=Object.create(obj) 作用：把obj作为obj2的原型；
+obj2.__proto__=obj
+function myCreate(obj){
+    function Fn(){}; //构造函数
+    Fn.prototype=obj;//构造函数的原型
+    return new Fn;//构造函数的实例
+}
+13.今天学过的封装
+//Object.create()
+myCreate();
+Array.prototype.rmSame();  去重
+Array.prototype.myForEach(); forEach兼容写法；
+14.回调函数需要考虑的四点
+1）当函数表达式作为参数传给另一个函数的时候，就是回调函数callback;
+2)callback被调用多少次取决于条件
+3）callback中的this，一般都是window,callback如果改变this指向--call
+4）callback如何传参 --1)有call的时候从第二个参数开始传2）直接传；
+15.画图需要关注几点：
+1）类--构造函数
+2）原型才3）实例
+原型链__proto__
+
+
+
+
+
+
+
+
+
+

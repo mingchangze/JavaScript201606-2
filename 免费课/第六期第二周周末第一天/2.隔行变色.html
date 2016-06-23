@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 40px;
+        }
+        li.blue{
+            background: lightblue;
+        }
+        li.red{
+            background: linen;
+        }
+        li.green{
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+<script>
+    //需求1：用for循环 配合 if..elseif...
+    //需求2：用while循环 配合 switch
+    var aLi=document.getElementsByTagName('li');
+    /*for(var i=0; i<aLi.length; i++){
+        if(i%3===0){
+            aLi[i].className='blue';
+        }else if(i%3===1){
+            aLi[i].className='red';
+        }else{
+            aLi[i].className='green';
+        }
+    }*/
+    var i=0;//定义
+    while(i<aLi.length){//条件
+        switch (i%3){
+            case 0:
+                aLi[i].className='blue';
+                break;
+            case 1:
+                aLi[i].className='red';
+                break;
+            default :
+                aLi[i].className='green';
+                break;
+        }
+        i++;//自增；
+    }
+</script>
+</html>

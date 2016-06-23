@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //提示：1.函数执行形成私有作用域 2.形参赋值 3.预解释？ 4.JS代码从上到下执行；
+    /*(function f(){
+        function f(){ return 1; }
+        alert (f());//2 2
+        function f(){ return 2; }
+    })();
+*/
+    var a=12;
+    function fn(a){
+        alert(a)//undefined
+        var a=14;
+        alert(a)//14
+    }
+    fn();
+    alert(a)//12
+</script>
+</body>
+</html>

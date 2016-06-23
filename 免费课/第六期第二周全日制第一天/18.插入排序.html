@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[34,28,9,12,26];
+    function insertSort(ary){
+        var left=ary.splice(0,1);
+        for(var i=0; i<ary.length; i++){
+            for(var j=left.length-1; j>=0;){
+                if(ary[i]<left[j]){//小于
+                    j--;
+                    if(j===-1){
+                        left.unshift(ary[i]);
+                    }
+                }else{//大于
+                    left.splice(j+1,0,ary[i]);
+                    break;
+                }
+            }
+        }
+        return left;
+    }
+    console.log(insertSort(ary))
+</script>
+</body>
+</html>

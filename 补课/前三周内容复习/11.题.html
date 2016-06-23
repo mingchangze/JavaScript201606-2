@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //这道题只能在IE下查看
+    f=function(){return false};//window.f;
+    g=function(){return false};//window.g;
+    (function(){//函数执行：1，形参赋值 2.预解释 3、JS代码执行
+        //var g=function g(){return true;}
+        //g():true
+        //运算符优先级：算术运算符》比较运算符》逻辑运算符》赋值运算符
+        //[]==![]->true
+        if(g()&&[]==![]){
+            f=function(){return false;}//window.f
+            function g(){return true;}
+        }
+    })();
+    alert(f());//false
+    alert(g());//false
+</script>
+</body>
+</html>

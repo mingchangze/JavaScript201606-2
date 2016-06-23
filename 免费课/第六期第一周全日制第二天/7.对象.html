@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //var obj={name:'zhufeng',age:8,bOk:true};
+   // alert('name' in obj)//in  就是判断当前的属性名是否在对象中
+    /*alert(obj['name'])*/
+    /*//对象的增加,更改:对象.属性名=xxx；如果属性名存在的话，相当于更改；否则，相当于添加
+    obj.sex='你猜';
+    obj.name='张杰';
+    //对象的查找
+    //alert(obj.name)
+    //对象的删除
+    //obj.name=null; //--假删除
+    delete obj.name;
+    alert(obj.name)
+    console.log(obj)*/
+    //alert(obj.length)//对象没有length属性，说明对象不能用for循环
+    //用for in 遍历对象中的每一项；定义的变量attr:代表属性名
+    //in  就是判断当前的属性名是否在对象中
+    /*for(var attr in obj){
+        console.log(attr+':'+obj[attr])//->代表遍历了对象中每个属性名;变量attr必须放[]中，并且不能加引号
+    }*/
+    /*for(var attr in obj){
+        console.log(attr+':'+obj[attr]);
+    }*/
+    var obj={0:'李慧',18:'張直',9:'郭园园',2:'岳飞宇'};
+    //当属性名为数字的时候，打印出来时，是按照属性名数字大小排列的；
+   // console.log(obj['0'])
+    console.log(obj[18])//对象中，如果想拿到对应的属性值的话，属性名放在[]中，一定要加引号，但是数字除外；
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

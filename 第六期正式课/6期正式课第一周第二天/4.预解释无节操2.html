@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //此题只在IE下执行；
+    /*var n=12;
+    if(n%2==0){
+        function fn(){
+            alert('偶数')
+        }
+        fn()
+    }else{
+        function fn(){
+            alert('奇数')
+        }
+        fn()
+    }*/
+
+   /* function fn(){
+        alert(a);//undefined
+        var a=12;
+        alert(b)
+        return a;
+        var b=13;
+    }
+    fn();*/
+    function fn(){
+        alert(fn2);
+        return function fn1(){
+            alert(123)
+        };
+        function fn2(){
+            alert(456)
+        }
+    }
+    fn();
+</script>
+</body>
+</html>

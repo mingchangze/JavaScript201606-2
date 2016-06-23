@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div span{
+            font-size: 50px;
+        }
+        .span1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div><span class="span1">距离端午活动还有: </span><span class="span2" id="span">1天00时00分00秒</span></div>
+<script>
+    var oSpan=document.getElementById('span');
+    function toDou(n){//如果是一位数；变成两位数
+        return n>=0 && n<10?'0'+n:''+n;
+    }
+    function countdown(){
+        //1.获取日期对象
+        var oDate=new Date();
+        var newDate=new Date('2016/6/8 17:46:00');
+        //2.活动时间距离现在时间的秒数；
+        var s=Math.floor((newDate.getTime()-oDate.getTime())/1000);
+        if(s<=0){
+            oSpan.innerHTML='活动已结束';
+            return;
+        }
+        //知道总秒数；知道 一天由86400秒组成 可以求出天数
+        var d=Math.floor(s/86400);
+        s%=86400;//剩下的秒数
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        var str=toDou(d)+'天'+toDou(h)+':'+toDou(m)+':'+toDou(s);
+        oSpan.innerHTML=str;
+    }
+    countdown();
+    clearInterval(timer);
+    var timer=setInterval(countdown,1000);
+</script>
+</body>
+</html>

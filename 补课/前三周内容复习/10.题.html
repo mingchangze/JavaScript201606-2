@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[500,200];//[500]
+    ~function(ary){//ary=xxff00 ->[500,200] 传参-对象
+        ary.length--;
+        ary=[];//ary=[];
+        ary[ary.length]=500;//ary[0]=500;
+        console.log(ary)//[500]
+    }(ary);
+    alert(ary)//500
+</script>
+</body>
+</html>

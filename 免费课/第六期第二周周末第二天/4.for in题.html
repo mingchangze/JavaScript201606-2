@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var personInfo={};
+    personInfo.name='珠峰培训';
+    personInfo['age']='10年';
+    personInfo.teacher='耿老师';
+    for(var attr in personInfo){
+        console.log(attr+'="'+personInfo[attr]+'"')
+    }
+</script>
+</body>
+</html>

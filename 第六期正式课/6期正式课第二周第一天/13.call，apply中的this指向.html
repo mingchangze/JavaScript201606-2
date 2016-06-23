@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    'use strict'
+    function fn(){
+        alert(this);
+    }
+    /*非严格模式*/
+    //fn.call()//this - window;
+    //fn.call(null)//this - window;
+    //fn.call(undefined) //this -
+
+    /*严格模式下，给call或apply第一个参数传谁this就是谁，不传就是undefined*/
+    //fn.call() //this - undefined;
+    //fn.call(null) //this -null;
+    //fn.call(undefined) //this-undefined
+
+</script>
+</body>
+</html>

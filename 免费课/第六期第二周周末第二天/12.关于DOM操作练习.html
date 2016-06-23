@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+<script>
+    //需求：在标签div1前面插入一个元素div; 让他的宽为200px; 高为200px;背景颜色为红色；className 为box； 同时，当点击这个新的div的时候，让他自己移除；
+    //思路：1. .box 样式； 2.创建一个div；a:创建 b:克隆； 3.把新标签div插入#div1前面； 4.绑定点击事件
+    var oDiv1=document.getElementById('div1');
+    //var oDiv=document.createElement('div');
+    var oDiv=oDiv1.cloneNode();
+    //oDiv['id']=null;
+    //oDiv.setAttribute('id','')
+    oDiv.removeAttribute('id');
+    oDiv.className='box';//id的级别大于className
+    document.body.insertBefore(oDiv,oDiv1);
+    oDiv.onclick=function(){
+        //this->oDiv
+        //this.parentNode-》document.body
+        //document.body.removeChild(oDiv);
+        this.parentNode.removeChild(this);
+    }
+</script>
+</html>

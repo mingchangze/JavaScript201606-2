@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*var str='zhufeng';
+    str=str.charAt(0).toUpperCase()+str.slice(1);*/
+    var str='2016/6/8 15:43:59';
+    //需求：2016年6月8号15点43分59秒
+    var ary=str.split(' ');
+    var aryL=ary[0].split('/');
+    var aryR=ary[1].split(':');
+    str=aryL[0]+'年'+aryL[1]+'月'+aryL[2]+'日 '+aryR[0]+'点'+aryR[1]+'分'+aryR[2]+'秒'
+    console.log(str)
+</script>
+</body>
+</html>

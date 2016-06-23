@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //var ary=[];//字面量方式创建
+    var ary=new Array;
+    var ary1=[];
+    /*ary.fn=function(){
+        alert(123);
+    }*/
+    Array.prototype.fn=function(){
+        alert(123)
+    };
+    ary1.fn();
+</script>
+</body>
+</html>

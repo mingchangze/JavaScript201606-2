@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //上级作用域：当前私有作用域对应的堆内存在空间A下开辟；那么，他的上级作用就是开辟堆内存的那个空间A；
+    //上级作用域只跟对应的堆内存在哪个空间开辟有关，跟在哪里调用没关系；
+    function fn(){
+        var n=0;
+        return function(){
+            alert(n)
+            n++;
+        }
+    }
+    var f=fn();
+    f();
+    f();
+    f();
+    //fn()();
+</script>
+</body>
+</html>

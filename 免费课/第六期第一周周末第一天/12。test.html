@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function add(){
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            if(!isNaN(arguments[i])){//过滤是否为有效数字
+                total+=parseFloat(arguments[i]);// 防止字符串拼接
+            }
+        }
+        return total;
+    }
+    console.log(add(12,4,'3','12px','px2234'))
+</script>
+</body>
+</html>

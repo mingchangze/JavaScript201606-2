@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        .box{
+            width: 458px;
+            height: 300px;
+            margin:30px auto;
+        }
+        .box ul{
+            clear: both;
+            overflow: hidden;
+        }
+        .box ul li{
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+            background: #e1e1e1;
+            background: -webkit-linear-gradient(top,lightgoldenrodyellow,lightblue);
+            border:1px solid #ccc;
+        }
+        .box ul li.bg{
+            background: lightpink;
+        }
+        .box div{
+            width: 100%;
+            height: 260px;
+            background: lightgoldenrodyellow;
+            display: none;
+            font-size: 50px;
+        }
+        .box div.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <ul>
+        <li class="bg">按钮1</li>
+        <li>按钮2</li>
+        <li>按钮3</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+</div>
+<script>
+    //思路分析：
+    //1.拿到li上正确的索引：因为我要通过索引来把按钮和内容关联起来；
+    //2.点击每个按钮，让所有的按钮都变灭，让所有内容都隐藏
+    //3.让当前这个按钮变亮，同时，让这个按钮对应的内容显示；
+    var oBox=document.getElementById('box');//通过ID获取一个元素
+    var aLi=oBox.getElementsByTagName('li');//通过标签名获取一组元素
+    var aDiv=oBox.getElementsByTagName('div');
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].index=i;//把正确的i值当作索引存在我们的自定义属性index上；
+        aLi[i].onclick=function(){
+            //alert(this.index)
+            //让所有的按钮都变灭，让所有的内容都隐藏
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].className='';
+                aDiv[i].className='';
+            }
+            //让当前的按钮变亮，让当前按钮对应的内容显示
+            aLi[this.index].className='bg';
+            aDiv[this.index].className='show';
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

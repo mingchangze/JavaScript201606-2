@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[22,25,12,23,21];
+    var obj={};
+   // console.log(res);
+    Array.prototype.myMap=function(callback,context){
+        context=context||window;
+        if('map' in Array.prototype){
+            return this.map(callback,context);
+        }
+        var newAry=[];
+        for(var i=0; i<this.length; i++){
+            if(typeof callback==='function'){
+                var val=callback.call(context,this[i],i,this);
+                newAry.push(val)
+            }
+        }
+        return newAry;
+    }
+    var res=ary.myMap(function(item,index,input){
+        //console.log(arguments)
+        return item*10;
+    },obj)
+    console.log(res)
+    console.log(ary)
+</script>
+</body>
+</html>

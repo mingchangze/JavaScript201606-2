@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Fn1(){
+        this.x=100;//构造函数中的this-永远指向实例；
+    }
+    Fn1.prototype.showX=function(){};
+    var f1=new Fn1;
+</script>
+</body>
+</html>

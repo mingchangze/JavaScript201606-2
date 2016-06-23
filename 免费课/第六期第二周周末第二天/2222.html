@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        div{
+            width: 800px;
+            margin:0 auto;
+        }
+        ul{
+            float: left;
+            margin:0 10px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script src="utils.js"></script>
+<script>
+    function rnd(n,m){
+        return Math.round(Math.random()*(m-n)+n);
+    }
+    var aUl = document.getElementsByTagName('ul');
+    function createLi(){
+        var oLi=document.createElement('li');
+        oLi.style.width='100%';
+        oLi.style.height=rnd(100,300)+'px';
+        oLi.style.background='rgb('+rnd(0,255)+','+rnd(0,255)+','+rnd(0,255)+')'
+        return oLi;
+    }
+    for(var i=0; i<100; i++){
+        var oLi=createLi();
+        var ary=[];
+        for(var j=0; j<aUl.length; j++){
+            ary.push(aUl[j])
+        }
+        ary.sort(function(a,b){
+            a=utils.getCss(a,'height');
+            b=utils.getCss(b,'height');
+            return a-b;
+        })
+        ary[0].appendChild(oLi);
+    }
+</script>
+</body>
+</html>

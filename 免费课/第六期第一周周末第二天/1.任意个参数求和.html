@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //封装：任意个参数的求和
+    function add(){
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            if(!isNaN(arguments[i])){//过滤：是否为有效数字
+                total+=parseInt(arguments[i]);//防止字符串拼接
+            }
+        }
+        return total;
+    }
+    alert(add(12,5,'3','12px'))
+</script>
+</body>
+</html>

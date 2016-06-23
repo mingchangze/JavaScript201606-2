@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //取0-61之间的4个不重复的随机整数；
+    function rnd(n,m){
+        n=Number(n);
+        m=Number(m);
+        //1.如果不是有效数字，返回0-1之间随机小数
+        if(isNaN(n) || isNaN(m)){//如果n or m中有一个是无效数字的话；返回一个0-1之间随机小数，提示你传参错误；
+            return Math.random();
+        }
+        //2.如果n>m,让n和m交换位置
+        if(n>m){
+            var tmp=n;
+            n=m;
+            m=tmp;
+        }
+
+        return Math.round(Math.random()*(m-n)+n)
+    }
+    var ary=[];
+    for(var i=0; i<4; i++){
+        var num=rnd(0,61);
+        if(ary.indexOf(num)!==-1){//说明重复了
+            i--;
+        }else{
+            ary.push(num);
+        }
+    }
+    document.write(ary)
+
+</script>
+</body>
+</html>

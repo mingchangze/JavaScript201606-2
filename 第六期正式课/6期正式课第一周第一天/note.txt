@@ -1,0 +1,62 @@
+﻿命令行常用命令：
+ mkdir test(文件夹名字)：创建一个新的文件夹
+ ls 查看目录
+ cd test :进入这个文件夹
+ pwd ： 查看路径
+
+一、git 工作流程
+1.git工作流总结
+    1.创建一个空目录 mkdir
+    2.进入目录： cd 目录名
+    3.git init 初始化仓库
+    4.新建文件到工作区
+    5.git add 添加到暂存区
+    6.git commit -m"注释" 添加到历史区
+2.本地仓库和远程仓库关联起来
+    git remote add origin 远程仓库的地址
+    git remote add origin https://github.com/zhufengpeixun/JavaScript201606.git
+    查看远程仓库地址：
+    git remote -v
+    解除关联
+    git remote rm origin
+3.远程仓库内容更新到本地仓库
+    git pull origin master
+4.把本地内容提交到远程仓库
+    git push origin master
+二、常用git命令总结
+    1.git pull origin master (这个一般是多人开发)
+    2.给本地仓库添加新内容
+    3.git add 要添加的文件名
+    4.git commit -m"新文件注释"
+    5.git push origin master
+三、git作业流程
+    1.fork 讲师仓库的地址https://github.com/zhufengpeixun/JavaScript201606
+    2.克隆你自己的项目地址 git clone 仓库地址
+    https://github.com/你的github用户名/JavaScript201606.git
+    3.修改工作区的本地代码，添加你的练习
+    4.git add .或者 -A 提交到暂存区
+    5.git commit -m"提交练习" 提交到历史区
+    6.git push origin master 推送到本人的github上
+    7.发一个pull request
+    8.由讲师来合并代码
+四、学员更新老师讲义
+    1.fork珠峰培训讲师的仓库：
+        1）登录自己的github
+        2）把讲师仓库地址复制到地址栏
+        3）fork
+    2.把自己的仓库下载到本地
+        1）git clone 自己的地址
+        2）git remote -v 查看当前本地都和哪些远程仓库保持了链接 (删除本地与远程仓库的通道：git remote rm origin名字)
+    3.在本地增加和讲师仓库链接
+        1）git remote add zhufeng(名字) 讲师的仓库地址
+        2）git remote -v 查看当前本地都和哪些远程仓库保持了链接 (删除本地与讲师仓库的通道：git remote rm zhufeng )
+    4.拉取老师的最新讲义信息
+        1）git remote update zhufeng (把本地和珠峰培训的链接通道进行更新)
+        2）git pull zhufeng master(把最新的讲义代码拉取到本地)
+    5.把本地拉取的最新讲义更新到自己的仓库中
+        1)it add ./-A
+        2)git commit -m”注释”
+        建议：git pull origin master(每次推送之前，先进行拉取；防止仓库中最新的本地没有，适用于多人开发)
+        3)git push origin master 把本地代码推送到自己的远程仓库中
+    注意：前3步第一次操作完成，以后都不需要再操作，以后操作直接从第四步开始；
+

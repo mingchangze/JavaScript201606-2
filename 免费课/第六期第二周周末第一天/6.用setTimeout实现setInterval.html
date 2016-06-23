@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*setInterval(function(){
+        alert(n)
+    },500)*/
+    /*setTimeout(function(){
+        alert(n)
+    },500)*/
+    var n=0;
+    function fn(){
+        n++;
+        console.log(n);
+        if(n===5){
+            console.log(n);
+            return ;
+        }
+        clearInterval(timer);
+        var timer=setTimeout(fn,500)
+    }
+    fn();
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+            font-size: 40px;
+        }
+        li{
+            height: 40px;
+            line-height: 40px;
+            color: #333;
+        }
+        li span{
+            display: inline-block;
+            width: 140px;
+            text-align: center;
+        }
+        li.bg0{
+            background: lightblue;
+        }
+        li.bg1{
+            background: lightgoldenrodyellow;
+        }
+        li.bg2{
+            background: lavender;
+        }
+        li.changeBg{
+            background: darkmagenta;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul"></ul>
+<script>
+    //获取元素：
+    /*
+    1.因为li最终要放在ul里，所以要获取ul;
+    2.因为我们要对每个li进行隔行变色，所以，要获取每个li;
+    * */
+    var oUl=document.getElementById('ul');
+    var aLi=oUl.getElementsByTagName('li');
+    var str='';
+    var bg=null;//保存用i%出来的每个className；
+    var changeBg=null;//鼠标移入时，保存当前元素原来的样式
+    //99乘法表的核心思想，和也页面结构的字符串拼接；
+    for(var i=1; i<=9; i++){//i代表每一行--行是li标签
+        str+='<li>';
+        for(var j=1; j<=i; j++){ //j 代表每一列 span 标签
+            str+='<span>'+(j+'*'+i+'='+j*i)+'</span>'
+        }
+        str+='</li>';
+    }
+    oUl.innerHTML=str;//给ul里添加我们已经拼接好的结构；
+    for(var i=0; i<aLi.length; i++){
+        if(i%3===0){//有几种情况就%几，进行隔行换色；
+            bg='bg0';
+        }else if(i%3===1){
+            bg='bg1';
+        }else{
+            bg='bg2';
+        }
+        aLi[i].className=bg;
+        //鼠标移入保存样式，并给他赋值一个新样式
+        aLi[i].onmouseover=function(){
+            changeBg=this.className; //把以前的样式保留下来；
+            this.className='changeBg';
+        };
+        //鼠标移出恢复以前的样式；
+        aLi[i].onmouseout=function(){
+            this.className=changeBg;
+        };
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

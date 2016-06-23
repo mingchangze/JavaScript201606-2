@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={showA1:function(){},showA2:function(){}};
+    var obj2=Object.create(obj);//
+    function A(){
+        this.x=100;
+    }
+    A.prototype=obj;//都是公有的方法
+    /*
+    * y:200
+    * __proto__:
+    *   constructor:B
+    *__proto__
+    *   showA1:function(){},
+    *   showA2:function(){}
+    * */
+    function B(){
+        this.y=200;
+    }
+    B.prototype=obj2;
+    B.prototype.constructor=B;
+    var b=new B;
+    console.dir(b);
+</script>
+</body>
+</html>

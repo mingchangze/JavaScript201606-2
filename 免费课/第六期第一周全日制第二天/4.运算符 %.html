@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 30px;
+        }
+        li.bg0{
+            background: -webkit-linear-gradient(top,lightpink,lightblue);
+        }
+        li.bg1{
+            background: lightgoldenrodyellow;
+        }
+        li.bg2{
+            background: lightpink;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');
+    /*for(var i=0; i<aLi.length; i++){
+        switch (i%3){
+            case 0:
+                aLi[i].className='bg0';
+                break;//阻断后面语句执行的作用；
+            case 1:
+                aLi[i].className='bg1';
+                break;
+            default :
+                aLi[i].className='bg2';
+        }
+    }*/
+    for(var i=0; i<aLi.length; i++){
+        if(i%2==0){
+            aLi[i].className='bg0';
+        }else if(i%2==1){
+            aLi[i].className='bg1';
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li><!--珠峰培训-->
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    //getChildren(curEle):获取当前元素下的所有元素节点
+    //1.是否要传参 2.返回值：数组 3.筛选思路：
+    // 1)拿到当前元素下的所有节点
+    //2）对拿到的所有节点，进行筛选，如果某个节点的nodeType===1；说明他是元素节点；就把它放入数组
+    function getChildren(curEle){
+        var ary=[];//用来保存所有的元素节点
+        var aChild=curEle.childNodes;
+        //核心思想：
+        for(var i=0; i<aChild.length; i++){
+            if(aChild[i].nodeType===1){
+                ary.push(aChild[i]);
+            }
+        }
+        return ary;
+    }
+    var aLi=getChildren(oUl);
+    console.log(aLi.length)
+</script>
+</body>
+</html>

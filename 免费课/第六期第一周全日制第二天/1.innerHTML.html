@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            height: 40px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    //需求：如果我想拿到div这个元素，请问，有几种方法？
+    //第一种写法；
+    var oDiv=document.getElementById('div1');
+    console.log(oDiv)
+    oDiv.style.backgroundColor='green';
+    //第二种写法
+    var oDiv2=document.getElementsByTagName('div');
+    console.log(oDiv2)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

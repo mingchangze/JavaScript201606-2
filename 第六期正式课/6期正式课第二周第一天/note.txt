@@ -1,0 +1,50 @@
+﻿1.每个类都是一个函数数据类型
+Fn instanceOf Function --》true
+instanceOf：判断这个实例是否属于这个类
+每个类都是Function这个类的实例;
+所有的实例都是对象数据类型；
+Function.prototype它是一个函数数据类型，它是一个匿名函数；但是他的功能跟普通的原型对象一模一样；
+2.Object是所有实例的基类；
+每个实例，通过__proto__都能先找到距离自己最近的类；但是，所有的实例，都能通过__proto__最终找到Object这个基类；
+3.所有的类都是函数数据类型
+Object这个基类也属于函数数据类型
+Function和Object他们两个之间的关系：
+Function是Object这个基类的爹；
+Object.prototype是Function.prototype的爹；
+4.函数的三种角色：
+1）普通函数：形成一个私有作用域-形参赋值-预解释-JS代码执行环境-作用域的释放；
+2）类：实例，原型prototype，__proto__原型链，constructor：所属的类；私有属性和公有属性。。。；
+3）对象：当函数是一个对象的时候，他其实就跟普通的对象没有区别；
+
+函数的三种角色之间互相不干扰；
+5.Function.prototype这个公有属性空间中有call,bind,apply;所有，call，bind，apply只能通过函数数据类型调用；
+6.call和apply的区别
+首先他们都是通过第一个参数改变this指向的；
+call 从第二个参数开始，一个个的传参，传递给call前面的函数的形参（也是对形参从左到右一个个的赋值的）
+apply 从第二个参数开始，以一个数组的形式传参；传递给apply前面的函数的形参（也是对形参从左到右一个个的赋值的）
+7.eval:让字符串编程JS代码来执行；
+8. 一般情况下，我们开发JS都用非严格模式；
+    /*非严格模式*/
+    fn.call()//this - window;
+    fn.call(null)//this - window;
+    fn.call(undefined) //this -
+
+    /*严格模式下 'use strict'，给call或apply第一个参数传谁this就是谁，不传就是undefined*/
+    fn.call() //this - undefined;
+    fn.call(null) //this -null;
+    fn.call(undefined) //this-undefined
+9.函数定义3阶段：
+    1.开辟一个空间地址
+    2.把函数体中的JS代码做为字符串存在这个空间中
+    3.把空间地址赋值给函数名
+    所以:函数在定义阶段不能执行，因为函数在定义阶段就是字符串；
+    Function.prototype.call=function(){
+        //1.把this这个实例中的this关键字(this字符串)替换成call的第一个参数obj；
+        //2.把this所代表的实例执行；
+        this();
+    };
+
+
+
+
+

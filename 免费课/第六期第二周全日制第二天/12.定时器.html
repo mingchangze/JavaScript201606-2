@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*setTimeout(function(){
+        alert(1)
+    },1000)*/
+     var n=0;
+    var timer=null;
+     clearInterval(timer)
+     timer=setInterval(function(){
+         alert(n)
+         n++;
+         if(n===5){
+         clearInterval(timer)
+         }
+     },500)
+    /*var a=setInterval(function(){},10);
+    var b=setInterval(function(){},10);
+    var c=setInterval(function(){},10);
+    var d=setInterval(function(){},10);
+    alert(a)*/
+
+</script>
+</body>
+</html>

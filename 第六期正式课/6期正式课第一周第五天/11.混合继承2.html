@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //混合继承：call继承+拷贝继承
+    function extend(newEle,oldEle){
+        for(var attr in oldEle){
+            newEle[attr]=oldEle[attr];
+        }
+    }
+    function F(){
+        this.x=100;
+        this.showX=function(){}
+    }
+    F.prototype.getX=function(){};
+    F.prototype.getX1=function(){};
+    var f1=new F;
+    console.dir(f1)
+    function S(){
+        F.call(this)//call继承
+    }
+    extend(S.prototype, F.prototype);//拷贝继承
+    S.prototype.cc=function(){ }
+    var p1=new S;
+    console.dir(p1);
+
+
+</script>
+</body>
+</html>

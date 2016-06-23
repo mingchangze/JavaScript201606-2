@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //需求：实现链式操作；
+    var ary=[12,11,12,11,54,54,34,12];
+    //为什么能进行链式操作？因为每个方法调用后必须得有一个返回值，并且，这个返回值一定得是数组，才能继续通过点调用数组的其他方法；
+    /*ary.reverse().sort(function(a,b){
+        return a-b;
+    }).pop();*/
+    Array.prototype.rmSame=function rmSame(){
+        var obj={};
+        for(var i=0; i<this.length; i++){
+            var cur=this[i];
+            if(obj[cur]===cur){
+                this.splice(i,1);
+                i--;
+                continue;
+            }
+            obj[cur]=cur;
+        }
+        return this;
+    };
+    var res=ary.rmSame().reverse().sort(function(a,b){
+        return a-b;
+    }).pop();
+    console.log(res)
+    console.log(ary)
+</script>
+</body>
+</html>

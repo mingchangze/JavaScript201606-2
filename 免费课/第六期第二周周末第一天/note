@@ -1,0 +1,184 @@
+1.数组常用方法
+    1）增，删，改
+        1.push()
+        2.pop()
+        3.unshift()
+        4.shift()
+        5.splice:
+            splice(n,m) 删除； 索引n开始，删除m个，返回值：被删除的数据以新数组的形式返回；原数组发生改变
+            splice(n,0,x) 添加； 从索引n开始，删除0个，把x的新内容添加到索引n之前；
+            splice(n,m,x) 替换； 从索引n开始，删除m个，替换成x的新内容；
+    2)数组的查找 和 克隆
+        6.slice（n,m）查找： 从索引n开始查找到索引m，不包含m
+        需求：[n项,m项]，并且原数组不发生改变； slice(n-1,m);
+        7.ary1.concat(ary2,ary3...) 数组拼接；
+        克隆：
+        slice()/ slice(0)
+        concat()
+        splice(0)
+    3）排序和排列
+        8.sort(function(a,b){return b-a}); 从大到小排； return a-b:从小到大排
+        9.reverse() 数组翻转
+    4）数组转字符串
+        10.toString();
+        11.join(拼接形式)  join('+') 配合 eval()
+            eval()--把字符串转成JS代码来执行；
+    5)常用但不兼容的方法
+        12.indexOf() 查找数组中是否有这一项；如果有，返回对应内容的索引；如果没有，返回-1；注意： 不兼容；
+        13.forEach() 遍历数组中的每一项，里面首先是个匿名函数；这个匿名函数中有两个参数：item（数组中的每一项），index（数组中每一项的索引）；他没有返回值；
+        14.map(); 功能和forEach()一样，但是他有返回值；
+2.数组方法总结：
+    1.在数组后面追加一项
+    push('') splice(ary.length,0,'');  ary[ary.length]='';
+    2.删除数组最后一项
+    pop() splice(ary.length-1,1) splice(ary.length-1) ary.length-- ary.length=ary.length-1; ary.length-=1; delete ary[ary.length-1]
+    3. 数组克隆
+    slice()/ slice(0) concat() splice(0)
+    4.排序
+    sort(function(a,b){return a-b});
+3.流程控制语句
+1）循环
+    1.for循环 长度固定的情况下用
+        4步： 定义 条件 语句 自增
+    2.for in循环
+    3.while循环 长度不固定的情况
+    4.do..while
+2)判断
+    1.if...else if..else if...else...
+    2.switch(){}
+    3.三目 条件？语句1：语句2；
+4.数据类型检测
+    1.typeof --检测基本数据类型
+    2.constructor 构造函数
+    3.instanceof 检测这个实例是否属于这个类；
+    4.Object.prototype.toString.call();
+5.数据类型
+基本数据类型 string number boolean null undefined
+引用数据类型：
+    对象数据类型 对象{}, 数组[]; new Date(); /\d+/。。。
+        对象创建3步骤：
+            1.开辟一个空间地址
+            2.把对象的属性名和属性值放在这个空间中
+            2.把空间地址赋值给变量名；
+    函数数据类型
+        函数包含两部分：定义和调用
+        函数定义3步骤：
+            1.开辟一个空间地址
+            2.把函数体中的所有JS代码做为字符串存在这个空间
+            3.把空间地址赋值给函数名
+        函数执行2步骤
+            1.形成一个私有作用域
+            2.把空间中的字符串做为JS代码来执行；
+        在函数体外，如果能拿到函数中的值：return 返回值
+        返回值有两种情况出现undefined:
+            1.没写return
+            2.写了return但没有赋值
+        系统内置的参数集合
+            arguments
+            方法 callee:指向函数本身
+            属性 length：参数个数；
+        函数-封装
+
+ 区别：
+ 基本数据类型是对值的操作；
+ 引用数据类型是对地址的操作；
+6.数据类型的转换
+    1.其他数据类型转为number数据类型
+        1)转换方式
+        严格转换 Number()
+        非严格转换 parseInt() parseFloat();
+        2)NaN出现的情况有两种
+            1.转换失败
+            2.非法运算
+        isNaN(): 是否为非有效数字
+        3)转换规律：
+        1.true ：1； false：0
+        2.null ：0； undefined:NaN
+        3.[] toString :''-> 0;
+    2.其他数据类型转为boolean数据类型
+    1）true？ false？
+    规律：除了0 NaN '' null undefined 为false之外，其他都是true；
+    2)boolean数据类型转换方式
+        1.Boolean()
+        2.!
+        3.!!
+        4.if(值)
+        5.if(表达式)
+    3.数据类型的比较(==)
+        1.对象==对象 比较的是地址； []==[] ->false
+        2.对象==字符串 转成字符串  []=='' ->true;
+        3.对象==数字 转成数字 []==2 ->false  []==0 ->true;
+        4.对象==布尔 转成数字  []==![] ->true;
+        5.字符串==数字 转成数字 ''==2 ->false  ''==0->true;
+        6.字符串==布尔 转成数字 ''==![] ->true;
+        7.数字==布尔 转成数字 2==![] ->false
+        8.null==undefined true ; null===undefined false；
+        9.NaN==NaN ->false;
+7.字符串常用方法
+    1）通过下标找对应字符或者编码
+        1.charAt() 通过下标找对应字符
+        2.charCodeAt()通过下标找对应编码
+    2)通过字符找缩影
+        3.indexOf() 从前往后找 找到返回索引，找不到返回-1；
+        4.lastIndexOf() 从后往前找 找到返回索引，找不到返回-1；
+    3）字符串截取
+        5.subStr(n,m) 从索引n开始，截取m个
+        6.subString(n,m) 从所有n开始，截取到索引m；不包含m；
+        7.slice(n,m) 从所有n开始，截取到索引m；不包含m； 可以通过负数截取；
+    4）字符串转数组
+        8.split();
+    5)字符串转大小写
+        9.toUpperCase() 转大写
+        10.toLowerCase() 转小写
+    6）字符串替换
+        11.replace('',要替换的内容)
+        12.search('内容')  找到返回索引，找不到返回-1；
+        13.match（‘内容’） 字符串匹配，找到会把内容匹配出来；
+8.随机数公式：Math.round(Math.random()*(m-n)+n)
+9.获取元素的方式：
+    1.document.getElementById(id);
+    2.context.getElementsByTagName(标签名);
+    3.context.getElementsByClassName(class名)；
+    4.document.getElementsByName(name名)
+    5.document.body 整个body
+    document.documentElement 整个HTML；
+    document.documentElement.clientWidth||document.body.clientWidth
+    document.documentElement.clientHeight||document.body.clientHeight
+    6.context.querySelector() 获取一个元素
+    7.context.querySelectorAll() 获取一组元素
+10.节点类型
+            nodeType        nodeName        nodeValue
+文本节点        3              #text           文本内容
+元素节点        1              大写的标签名       null
+注释节点        8              #comment        注释内容
+document节点   9              #document         null
+11.节点关系
+    parentNode
+    childNodes
+    children
+    previousSibling--上一个哥哥节点（可以是任意节点类型）
+      previousElementSibling--上一个哥哥元素节点（问题：不兼容IE6-8）
+    nextSibling
+        nextElementSibling
+    firstChild
+    lastChild
+12.DOM动态创建
+    1.创建一个元素
+    document.createElement('div')
+    文档      创建    元素  （标签名）
+    2.插入元素
+    parent.appendChild(oDiv) //插入一个容器的末尾；
+    parent.insertBefore(newEle,oldEle)//把新元素插入到指定元素的前面；
+    3.删除元素
+    parent.removeChild(oDiv);
+    4.替换元素
+    parent.replaceChild(newEle,oldEle)
+13.属性操作：
+    1.“.” [];
+    2.attribute系列
+    getAttribute
+    setAttribute
+    removeAttribute
+
+
+

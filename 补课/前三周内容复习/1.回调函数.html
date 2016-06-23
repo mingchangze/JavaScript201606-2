@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //回调函数：当函数做为参数传给另一个函数的时候，他就是回调函数
+    //1.什么时候调用，调用几次
+    //2.是否需要传参，传的参数有几个
+    //3.this指向-一般情况下回调函数中this-window;但是我们可以通过call，apply，bind去改变this指向；
+    //4.回调函数是否有返回值；
+    var obj={};
+    function fn1(callback){
+        /*for(var i=0; i<5; i++){
+            callback(1,2);
+        }*/
+        //callback.call(obj,1,2);//这里调用callback就相当于调用fn2
+        var res=callback.apply(obj,[1,2]);//这里调用callback就相当于调用fn2
+        //通过call的第一个参数来改变this指向
+        /*
+        * 1.call点前面的函数中的this关键字变成call的第一个参数；
+        * 2.把call点前面的函数执行；
+        * */
+        alert(res)
+    }
+    function fn2(n,m){
+        alert(this+(n+m)) //（） 用来提高优先级
+        return 123;
+        /*
+        * undefined出现的时候有两种情况
+        * 1.没有写return；
+        * 2.写了return 但没有赋值；
+        *
+        * */
+    }
+    fn1(fn2)//任意数据都可以作为参数传给另一个函数的形参；
+</script>
+</body>
+</html>

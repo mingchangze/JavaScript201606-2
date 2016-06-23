@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[10,2,46,28,13];
+    //1.sort思想
+    /*ary.sort(function(a,b){
+        return a-b;
+    })
+    alert(ary.shift())
+    alert(ary.pop())*/
+    //2.Math思想:字符串拼接和eval
+    /*var str=ary.join(',');//'10,2,46,28,13'
+    var str2='Math.max('+str+')';//'Math.max(10,2,46,28,13)'
+    alert(eval(str2))*/
+    /*
+    alert(Math.max('10','2','46','28','13')) right
+    alert(Math.max(10,2,46,28,13)) right
+    */
+    //alert(Math.max('10,2,46,28,13')) error
+    //alert(eval('Math.max(10,2,46,28,13)'))
+    //3.Math思想：apply
+    /*alert(Math.max.apply(null,ary));
+    alert(Math.min.apply(null,ary))*/
+    //4.假设法
+    /*var min=ary[0];
+    var max=ary[0];
+    for(var i=1; i<ary.length; i++){
+        ary[i]>max?max=ary[i]:null;
+        ary[i]<min?min=ary[i]:null;
+    }
+    alert(max)
+    alert(min)*/
+</script>
+</body>
+</html>

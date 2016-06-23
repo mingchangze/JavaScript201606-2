@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={name:'zhufeng',age:12};
+    var obj2={};
+    //遍历obj中的每一项，把他克隆一份，给obj2;
+    for(var attr in obj){
+        obj2[attr]=obj[attr];
+    }
+    obj2.attr='345'
+    console.log(obj)
+    console.log(obj2)
+</script>
+</body>
+</html>

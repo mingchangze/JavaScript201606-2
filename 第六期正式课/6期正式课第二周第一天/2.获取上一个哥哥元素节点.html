@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div></div>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    console.log('previousElementSibling' in oDiv)
+    function prev(curEle){
+        if('previouseElementSibling' in curEle){
+            return curEle.previousElementSibling;
+        }
+        var pre=curEle.previousSibling;
+        while(pre && pre.nodeType!==1){
+            pre=pre.previousSibling;
+        }
+        return pre;
+    }
+</script>
+</body>
+</html>

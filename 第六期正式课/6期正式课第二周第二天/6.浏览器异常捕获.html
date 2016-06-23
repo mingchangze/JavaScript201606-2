@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //ReferenceError: a is not defined 引用错误
+    //Uncaught TypeError: a.fn is not a function 类型错误
+    //try...catch... 浏览器异常捕获
+    /*alert(a)
+    alert(1111)*/
+    /*var a=123;
+    try{//执行是浏览器支持并且能正常执行的JS语句
+        console.log(a)
+    }catch(e){
+        //当try里面的语句不能正常执行的时候，走的是catch里面的语句；
+        console.log(e)//打印出错误原因
+    }finally{//finally里面的语句，是无论try能否正常执行，都会走finally；所以，finally基本不用；
+        console.log(111)
+    }*/
+    //var a=123;
+    try{//执行是浏览器支持并且能正常执行的JS语句
+        console.log(a)
+    }catch(e){
+        //当try里面的语句不能正常执行的时候，走的是catch里面的语句；
+        //console.log(e)//打印出错误原因
+        throw new Error('哥们，你错了')//可以把错误内容以红色字体打印出来，同时不再执行后面的语句；
+        alert(123)
+    }
+</script>
+</body>
+</html>

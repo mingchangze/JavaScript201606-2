@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //从中间拿出一个值；拿数组中的每一项跟这个值进行比较，比他小，放左边数组，否则，放右边数组； return quickSort(left).concat([中间]，quickSort(right))
+    var ary=[34,28,9,12,26];
+    function quickSort(ary){
+        if(ary.length<=1){
+            return ary;
+        }
+        var num=Math.floor(ary.length/2);
+        var numValue=ary.splice(num,1)[0];
+        var left=[];
+        var right=[];
+        for(var i=0; i<ary.length; i++){
+            if(ary[i]<numValue){
+                left.push(ary[i])
+            }else{
+                right.push(ary[i])
+            }
+        }
+        return quickSort(left).concat([numValue],quickSort(right))
+    }
+    console.log(quickSort(ary))
+
+</script>
+</body>
+</html>
+
+
+
+

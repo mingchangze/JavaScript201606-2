@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width: 450px;
+            height: 300px;
+            margin:30px auto;
+        }
+        .box input{
+            float: left;
+            width: 150px;
+            height: 40px;
+        }
+        .box input.bg{
+            background: red;
+        }
+        .box div{
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+            display: none;
+        }
+        .box div.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <input type="button"  value="按钮1" class="bg"/>
+    <input type="button"  value="按钮2"/>
+    <input type="button"  value="按钮3"/>
+
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+</div>
+<script>
+    //写选项卡的思路：
+    //点击每个按钮的时候，让所有的按钮都变灭；同时让所有的内容都隐藏；
+    //让当前触发点击事件的这个按钮变亮；同时，让这个按钮对应的内容显示；
+    var oBox=document.getElementById('box');
+    var aBtn=oBox.getElementsByTagName('input');
+    var aDiv=oBox.getElementsByTagName('div');
+    for(var i=0; i<aBtn.length; i++){
+        aBtn[i].index=i;
+        aBtn[i].onclick=function(){
+            for(var j=0; j<aBtn.length; j++){
+                aBtn[j].className='';
+                aDiv[j].className='';
+            }
+            //this.className='bg';//通过this找到当前触发事件的按钮；
+            aBtn[this.index].className='bg';//通过索引找到对应的按钮；
+            aDiv[this.index].className='show';
+        }
+    }
+
+</script>
+</body>
+</html>

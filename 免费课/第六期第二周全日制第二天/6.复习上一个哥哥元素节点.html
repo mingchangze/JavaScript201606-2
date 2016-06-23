@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    /*prev:获取上一个哥哥元素节点
+    * 1.区分高级浏览器和低级浏览器
+    * previousElementSibling -->直接可以拿到上一个哥哥元素节点；但是他不兼容低级浏览器；
+    * 所以，需要对低级浏览器单独处理，不需要处理高级浏览器；
+    * 2.低级浏览器如何处理？
+    * prev=curEle.prevsSibling;
+    * while循环（prev && 一定不能是元素节点） 1)必须是一个节点 2）一定不能是元素节点
+    * */
+    function prev(curEle){
+        //高级浏览器---只是为了性能优化
+        if('previousElementSibling' in curEle){
+            return curEle.previousElementSibling
+        }
+        //低级浏览器的处理
+        var prev=curEle.previousSibling;
+        while(prev && prev.nodeType!==1){
+            prev=prev.previousSibling;
+        }
+        return prev;
+    }
+</script>
+</body>
+</html>

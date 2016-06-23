@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 40px;
+        }
+        li.bg0{
+            background: lightblue;
+        }
+        li.bg1{
+            background: lightpink;
+        }
+        li.bg2{
+            background: lightgoldenrodyellow;
+        }
+        li.bg3{
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');
+    var bg=null;//null:现在没有，以后会有；
+    for(var i=0; i<aLi.length; i++){
+        switch (i%4){
+            case 0:
+                bg='bg0';
+                break;
+            case 1:
+                bg='bg1';
+                break;
+            case 2:
+                bg='bg2';
+                break;
+            default :
+                bg='bg3';
+                break;
+        }
+        aLi[i].className=bg;
+    }
+</script>
+</body>
+</html>

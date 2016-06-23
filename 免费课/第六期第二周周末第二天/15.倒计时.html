@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            font-size: 50px;
+        }
+        div b{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>距离下课还有：<b>00天00:00:00</b></div>
+<script>
+    //需求：倒计时
+    var oB=document.getElementsByTagName('b')[0];
+    countDown();
+    function toDou(n){
+        return n>=0&&n<10?'0'+n:''+n;
+    }
+    function countDown(){
+        var oDate=new Date();
+        //alert(oDate.getTime()); //现在距离1970年1月1日 00:00:00 的毫秒数
+        var newDate=new Date('2016/6/11 18:00:00');
+        var s=Math.floor((newDate.getTime()-oDate.getTime())/1000);
+        //秒转换
+        //一天24小时 1小时60分 1分60秒  === 24*60*60=86400;
+        var d=Math.floor(s/86400); //整数部分：天数； 余数：剩下的秒数；
+        //s=s%86400;
+        s%=86400;
+        var h=Math.floor(s/3600); //整数部分：小时 余数：剩下的秒数
+        s=s%3600;
+        var m=Math.floor(s/60);
+        s=s%60;
+        oB.innerHTML=toDou(d)+'天'+toDou(h)+':'+toDou(m)+':'+toDou(s);
+    }
+    clearInterval(timer);
+    var timer=setInterval(countDown,1000)
+</script>
+</body>
+</html>

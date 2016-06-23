@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function add(){
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            //进行有效数字的判断
+            if(!isNaN(arguments[i])){
+                total+=Number(arguments[i]);//防止字符串拼接
+            }
+        }
+        return total;//因为外面要接受这个数值，所以此函数必须得有返回值；
+    }
+    var num=add(1,2,3,4,'3','3px');
+    console.log(num)
+</script>
+</body>
+</html>

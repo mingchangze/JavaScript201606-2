@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+            font-size: 40px;
+        }
+        li{
+            height: 40px;
+            line-height: 40px;
+            color: #333;
+        }
+        li span{
+            width: 150px;
+            text-align: left;
+            display: inline-block;
+        }
+        li.bg0{
+            background: lightgoldenrodyellow;
+        }
+        li.bg1{
+            background: lightpink;
+        }
+        li.bg2{
+            background: lightcyan;
+        }
+        li.bg3{
+            background: linen;
+        }
+        li.changeBg{
+            background: darkmagenta;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul"></ul>
+<script>
+    var oUl=document.getElementById('ul');
+    var aLi=oUl.getElementsByTagName('li');
+    var str='';
+    var oldBg=null;
+    //1.99乘法表及页面结构
+    for(var i=1; i<=9; i++){
+        //行 li
+        str+='<li>'
+        for(var j=1; j<=i; j++){
+            //列 span      99乘法表公式
+            str+='<span>'+(j+'*'+i+'='+j*i)+'</span>'
+        }
+        str+='</li>'
+    }
+    //等循环结束后，把已经拼接好的字符串放入ul中；
+    oUl.innerHTML=str;
+    //2.隔行换色
+    for(var i=0; i<aLi.length; i++){
+        /*if(i%2==0){
+            aLi[i].className='bg0'
+        }else{
+            aLi[i].className='bg1';
+        }*/
+        aLi[i].className='bg'+i%4;
+        //3.鼠标移入移出效果
+        aLi[i].onmouseover=function(){
+            //先保存以前的样式
+            oldBg=this.className;
+            this.className='changeBg';
+        };
+        aLi[i].onmouseout=function(){
+            this.className=oldBg;
+        }
+    }
+
+</script>
+</body>
+</html>

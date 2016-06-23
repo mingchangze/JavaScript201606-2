@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={}
+    function fn(n,m){
+        alert(this+(n+m))
+    }
+    //fn.call(obj)
+    //fn.apply(obj)
+    //1.把call点前面的函数中的this关键字变成call的第一个参数
+    //2.把call点前面的函数执行；
+
+    var f1=fn.bind(obj,1,2);//1.把this关键字改了，2.把形参赋值了
+    f1();
+    //改变this指向的方法有几个？call() bind() apply();
+</script>
+</body>
+</html>

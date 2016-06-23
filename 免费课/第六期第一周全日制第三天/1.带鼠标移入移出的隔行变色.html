@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 30px;
+        }
+        li.bg0{
+            background: lightblue;
+        }
+        li.bg1{
+            background: lightgoldenrodyellow;
+        }
+        li.bg2{
+            background: lightpink;
+        }
+        li.changeBg{
+            background: darkmagenta;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    //需求：鼠标移入移出的隔行变色：1.隔行变色 2.鼠标移入变色，移出恢复之前的颜色
+    var aLi=document.getElementsByTagName('li');
+    var oldBg=null;
+    for(var i=0; i<aLi.length; i++){
+        var curLi=aLi[i];
+        curLi.className='bg'+i%3;
+        curLi.onmouseover=function(){
+            //先把以前的颜色存在变量里；准备以后移出的时候再用；
+            oldBg=this.className;
+            this.className='changeBg';
+        };
+        curLi.onmouseout=function(){
+            this.className=oldBg;
+        };
+
+    }
+
+</script>
+</body>
+</html>

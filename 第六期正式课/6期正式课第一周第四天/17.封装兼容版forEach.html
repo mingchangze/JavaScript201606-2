@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[23,34,98,10];
+    var obj={};
+    Array.prototype.myForEach=function(callback,context){
+        context=context||window;
+        //高级浏览器
+        if('forEach' in Array.prototype){
+            this.forEach(callback,context);
+            return;
+        }
+        //低级浏览器；
+        //1.思考回调函数被调用多少次？--数组长度有关
+        //2.思考callback需要传几个参数？ item,index,input
+        //3.如何改变callback的this指向
+        for(var i=0; i<this.length; i++){
+            if(typeof callback==='function'){
+                callback.call(context,this[i],i,this)
+            }
+        }
+
+    }
+    ary.myForEach(function(item,index,input){
+        console.log(this)
+    },obj);
+
+</script>
+</body>
+</html>

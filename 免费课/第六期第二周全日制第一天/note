@@ -1,0 +1,58 @@
+1.Math 常用方法
+    1.Math.random() 0-1之间的随机小数；不包含1；
+    Math.random()*(m-n)+n; 求一定范围的随机数公式；
+    2.Math.round() 四舍五入的整数
+    3.Math.floor() 向下取整
+    4.Math.ceil() 向上取整
+    5.Math.sqrt() 开平方
+    6.Math.pow() 幂
+    7.Math.abs() 取绝对值
+    8.Math.max() 求最大值
+    9.Math.min() 求最小值
+2.数组的几个小方法
+    1.push() 给数组末尾增加新内容
+    2.pop() 删除数组最后一项
+    3.shift() 删除数组第一项
+    4.unshift() 给数组开头添加新内容
+    5.splice()
+    删除 splice(n,m): 从第几项内容的索引开始，删除m个；删除的数据会以新数组的形式返回；原数组会发生改变；
+    添加 ary.splice(n,0,x); 从索引n开始；删除0个；把新内容x添加到索引n的前面；返回值是个空数组；
+    替换 ary.splice(n,m,x); 从索引n开始，删除m个，把m替换成x(新内容);被删除的数字以新数组的形式返回；
+    6.indexOf();查找数组中是否有这一项内容，如果有，返回对应内容的索引，如果没有没有返回-1； 注意：不兼容IE6-8；
+    7.concat(); 数组拼接；
+3.DOM中获取元素的方式
+    1.document.getElementById() ID必须在document下获取元素；
+    2.context.getElementsByTagName(标签名) 通过标签名获取元素；
+    3.document.getElementsByName(); 通过name获取元素，最好应用在获取表单元素；而且只能在document下获取name;
+    4.context.getElementsByClassName();
+    5.document.documentElement 整个HTML;
+    document.body 整个body；
+    document.documentElement.clientWidth||document.body.clientWidth;
+    document.documentElement.clientHeight||document.body.clientHeight;
+    6.document.querySelect(); 获取的是一个元素；
+    7.document.querySelectAll(); 获取的是一组元素；
+4.关于节点类型
+            nodeType    nodeName     nodeValue
+文本节点       3           #text        文本内容
+元素节点       1          大写的标签名     null
+注释节点       8           #comment     注释内容
+document      9           #document     null
+5.关于节点关系
+parentNode 父节点
+childNodes 拿到的所有节点：文本节点，注释节点，元素节点，document节点。。
+children 其他浏览器下拿到的都是元素节点，但是IE8会受注释节点的影响；
+previousSibling 上一个哥哥节点
+nextSibling 下一个弟弟节点
+firstChild 大儿子 第一个节点
+lastChild 小儿子  最后一个节点
+
+
+
+
+
+
+
+
+
+
+

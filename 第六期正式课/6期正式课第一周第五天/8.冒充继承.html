@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //冒充继承：把父类私有+公有的属性和方法，克隆(for in循环)了一份一模一样的给子类私有的属性和方法；
+    function F(){//父类； 父类私有的属性和方法
+        this.x=100;
+        this.y=300;
+    }
+    F.prototype.showX=function(){//父类共有的属性和方法；
+        alert(123);
+    };
+    function S(){
+        var tmp=new F;
+        console.dir(tmp)
+        for(var attr in tmp){
+            this[attr]=tmp[attr];
+        }
+    };
+    var p1=new S;
+    console.dir(p1)
+</script>
+</body>
+</html>

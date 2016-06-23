@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //var obj2=Object.create(obj);//obj是obj2的原型
+    //obj是一个原型，prototype 他是一个对象；
+    var obj={name:'zhufeng',showName:function(){}}
+    function Fn(){//构造函数
+        this.x=100;
+    }
+    Fn.prototype=obj;//原型
+    var obj2=new Fn;//实例；
+    alert(obj2.name)
+</script>
+</body>
+</html>

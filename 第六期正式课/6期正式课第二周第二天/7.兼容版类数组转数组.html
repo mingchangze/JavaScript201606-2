@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');
+    var aryLi=listToArray(aLi);
+    console.log(aryLi instanceof Array)
+    //需求：把类数组转成数组
+    /*function listToArray(arg){
+        var ary=[];
+        try{
+            ary=Array.prototype.slice.call(arg)
+        }catch(e){
+            for(var i=0; i<arg.length; i++){
+                ary.push(arg[i]);
+            }
+        }
+        return ary;
+    }*/
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<script>
+    var name='zhufeng';
+    var age=8;
+    /*(function(name,age){
+        window.name='郭启发';
+        window.age=18;
+       // alert(name)
+    })();
+    alert(name)*/
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    (function(){
+        function prev(curEle){
+            //高级浏览器--直接用不兼容的获取上一个哥哥元素节点
+            if('previousElementSibling' in curEle){
+                return curEle.previousElementSibling;
+            }
+            //对低级浏览器的兼容处理；
+            var pre=curEle.previousSibling;
+            while(pre && pre.nodeType!==1){
+                pre=pre.previousSibling;
+            }
+            return pre;
+        }
+        window.aaa=prev;
+    })()
+    console.log(aaa(aLi[2]))
+</script>
+</body>
+</html>

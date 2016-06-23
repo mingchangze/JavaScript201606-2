@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary1=[7.777,21,3.7,8.7,12.7]; //ary1.slice();
+    //模拟数组克隆
+    Array.prototype.mySlice=function(){
+        var ary=[];
+        for(var i=0; i<this.length; i++){
+            ary.push(this[i]);
+        }
+        /*类数组转数组
+        var ary=[];
+        for(var i=0; i<arguments.length; i++){
+            ary.push(arguments[i]);
+        }
+        Array.prototype.mySlice.call(arguments,参1.参2。。。。)
+        [].sort.call(arguments,function(a,b){return a-b});
+        */
+        return ary;
+    }
+    var ary2=ary1.mySlice();
+</script>
+</body>
+</html>

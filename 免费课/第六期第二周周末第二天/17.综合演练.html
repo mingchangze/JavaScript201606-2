@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        div{
+            width: 1200px;
+            margin:0 auto;
+        }
+        div ul{
+            float: left;
+            width: 380px;
+            margin:0 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script>
+    /*
+    * 效果：瀑布流的前身
+    * 涉及知识点：
+    * 1.随机数
+    * 2.元素动态创建；
+    * 3.通过循环来创建100li;
+    * 4.类数组转数组；
+    * 5.数组的排序sort（）；
+    * 6.元素的动态插入；
+    * 7.获取非行间样式
+    * 不兼容的写法，只兼容高级浏览器：getComputedStyle(obj,null)[样式名] -》100px;
+    * */
+    function rnd(n,m){
+        return Math.round(Math.random()*(m-n)+n)
+    }
+    function createLi(){
+
+    }
+
+
+</script>
+</body>
+</html>

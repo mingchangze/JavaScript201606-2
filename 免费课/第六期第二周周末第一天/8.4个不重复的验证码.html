@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var strCode='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var str='';
+    var ary=[];
+    /*for(var i=0; i<4; i++){
+        var rnd=Math.round(Math.random()*61);
+        if(ary.indexOf(rnd)!==-1){
+            i--;
+        }else{
+            ary.push(rnd);
+            str+=strCode.charAt(rnd);
+        }
+    }*/
+    while(ary.length<4){
+        var rnd=Math.round(Math.random()*61);
+        if(ary.indexOf(rnd)===-1){
+            ary.push(rnd);
+            str+=strCode.charAt(rnd);
+        }
+    }
+    document.body.innerHTML=str;
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

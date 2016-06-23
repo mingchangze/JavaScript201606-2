@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //当函数做为表达式赋值给一个变量的时候，是按照变量的预解释机制进行预解释的；
+    //这个变量名，是不是就相当于函数名，虽然不能在上面调用，但是可以在函数赋值后调用；
+    //alert(fn)
+    //fn()
+    fn=function(){
+        alert(123)
+    };
+    function fn(){
+        alert(456)
+    }
+    fn();
+    /*function fn(){
+        alert(123)
+    }
+    fn();*/
+</script>
+</body>
+</html>

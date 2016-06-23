@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function A(){
+        this.x=100; //a.x=100;
+    }
+    A.prototype.showX=function(){
+        this.y=300;//a.y=300
+        alert(this.x+this.y)
+    }
+    var a=new A;
+    //a.showX()
+    a.__proto__.showX();
+</script>
+</body>
+</html>

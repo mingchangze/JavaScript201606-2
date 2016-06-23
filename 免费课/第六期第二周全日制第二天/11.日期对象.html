@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*var oDate=new Date();
+   //alert(oDate.getFullYear())
+   //alert(oDate.getMonth())
+   //alert(oDate.getDate())
+   //alert(oDate.getDay())
+   alert(oDate.getSeconds())*/
+    getClock();
+    function getClock(){
+        var oDate=new Date();
+        var h=oDate.getHours();
+        var m=oDate.getMinutes();
+        var s=oDate.getSeconds();
+        var str=h+'时'+m+'分'+s+'秒';
+        document.body.innerHTML=str;
+    }
+    var timer=setInterval(getClock,1000)
+
+</script>
+</body>
+</html>

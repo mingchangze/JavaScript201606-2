@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Fn(){
+        this.x=100;
+        var x=200;
+        var y=300;
+        alert(x+y)
+    }
+    //1.这是函数类的角色
+    Fn.prototype.showX=function(){
+        alert(123);
+    }
+    var f=new Fn();//当你创建一个实例的时候，其实就是调用构造函数；
+    alert(f.x)
+    /*f.showX();*/
+    //2.普通函数角色
+    //3.对象的角色：属性和方法；
+    Fn.aa=456;
+    Fn.showA=function(){
+        alert(789)
+    }
+    alert(Fn.aa)
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var a=12;
+    function fn(){
+        alert(a); //undefined
+        var a=14;
+        alert(a); //14
+    }
+    fn();
+    alert(a); //12
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //获取任意范围内的随机数
+    function rnd(n,m){
+        n=Number(n);
+        m=Number(m);
+        if(isNaN(n) || isNaN(m)){
+            return Math.random();//通过含蓄的返回一个0-1之间的随机消失，高速客户，你传错了
+        }
+        if(n>m){
+            var tmp=n;
+            n=m;
+            m=tmp;
+        }
+        return Math.round(Math.random()*(m-n)+n)
+    }
+    var strCode='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var str2='珠峰跑了快递费就睡啦款到即发拉开缴费卡拉斯交电费卡睡懒觉发神经的'
+    //console.log(str2[34]) 学了str.charAt() 后，字符串操作，再也不要使用[];
+    function getCode(strCode){
+        var str='';
+        for(var i=0; i<4; i++){
+            var num=rnd(0,31);
+            str+=strCode.charAt(num)
+        }
+        return str;
+    }
+    document.write(getCode(str2))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link id="link" rel="stylesheet" href="css/red.css"/>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    var oDiv=document.getElementById('div1');
+    var oLink=document.getElementById('link');
+    var bOk=true;
+    oDiv.onclick=function(){
+        if(bOk){
+            oLink.href='css/blue.css';
+        }else{
+            oLink.href='css/red.css';
+        }
+        bOk=!bOk;
+    }
+</script>
+</body>
+</html>

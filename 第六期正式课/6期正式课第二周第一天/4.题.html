@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[100,200];//xxff00 [100]
+    ~function(ary){//var ary=xxff00;
+        ary.length--;//ary:[100]
+        ary=[];//ary=[];
+        ary[ary.length]=300;//ary[0]=300;
+        alert(ary)//alert([300])
+    }(ary);
+    alert(ary)// [100]
+</script>
+</body>
+</html>

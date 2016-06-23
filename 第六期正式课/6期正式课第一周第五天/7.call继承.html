@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //call继承：把父类私有的属性和方法继承给了子类私有的属性和方法；
+    function F(){
+        this.x=100;
+        this.y=200;
+    }
+    var f1=new F;
+    console.dir(f1)
+    function S(){
+        F.call(this)
+        this.z=300;
+    }
+    var p1=new S;
+    console.dir(p1)
+    //私有属性：x:100; y:200
+</script>
+</body>
+</html>

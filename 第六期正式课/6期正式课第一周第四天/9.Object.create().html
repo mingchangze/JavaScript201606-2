@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={getX:function(){alert('x')},getY:function(){alert('y')}};
+    //思路2：把obj做为obj2的原型（obj2.__proto__=obj）
+    //obj2.aa=xx;//改的是私有属性；
+    //obj2可以通过__proto__去使用obj上的属性和方法；
+
+
+
+    //思路1：obj2克隆各一份一模一样的obj的内容；
+    /*var obj2={};
+    for(var attr in obj){
+        obj2[attr]=obj[attr];
+    }*/
+    function A(){
+        this.x=100;
+    }
+    A.prototype=obj;
+    function B(){};
+    B.prototype=obj2;
+    B.prototype.cc=function(){}
+    var b=new B;
+    b.getY();
+
+</script>
+</body>
+</html>

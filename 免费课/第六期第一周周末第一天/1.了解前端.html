@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 40px;
+            background: #ccc;
+        }
+        #div2{
+            width: 100px;
+            height: 200px;
+            overflow: hidden;
+            background: lightblue;
+            display: none;
+        }
+    </style>
+    <script src="1.js"></script>
+    <!--<script>
+        //当系统加载完成的时候
+        window.onload=function(){
+            //实现思路：鼠标移入div1,然div2显示，移出，隐藏
+            //当鼠标移入div1元素的时候，想干什么事？
+            var oDiv1=document.getElementById('div1');
+            console.log(oDiv1)
+            var oDiv2=document.getElementById('div2');
+            oDiv1.onmouseover=function(){
+                //这里放的东西：就是我们想干的事情；
+                oDiv2.style.display='block';
+            };
+            oDiv1.onmouseout=function(){
+                oDiv2.style.display='none';
+            };
+        }
+    </script>-->
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

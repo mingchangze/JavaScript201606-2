@@ -1,0 +1,75 @@
+1.continue 跳出本次循环，以后循环继续
+  break 直接跳出循环，以后不再循环了；
+  跳出循环 :continue break;
+  跳出函数；阻断函数执行：return；
+2.switch中的比较是严格比较；=== 值比较+类型比较；
+3.同时定义几个变量，不能用等号，可以用逗号隔开；
+var a=b=c=d=5; 定义的变量只有a;
+var a, b, c,d; 定义的变量a,b,c,d;
+4.基本数据类型和引用数据类型的区别：
+基本数据类型是对值的操作；
+引用数据类型是对地址的操作；
+5.循环绑定事件中的两种实现思想：
+    1.自定义属性：通过自定义属性，把正确的i值保存在标签的属性值上
+    <input type='button' index=0/>
+    2.闭包：把正确的i值保存在一个私有作用域里；什么时候子函数想用，都可以用父函数提前保存好的值；
+6.关于DOM的动态创建
+    1.创建一个新元素
+    document.createElement('标签名')；
+    obj.cloneNode(boolean)； 如果参数为true：代表深度克隆，能把该元素下的所有内容及子标签都克隆； 如果参数为false：只克隆当前元素的标签，即一个空标签而已；
+    2.插入元素
+    parent.appendChild(newEle); 把新元素newEle,插入到父级容器的末尾；
+    appendChild返回值：是新插入的那个元素；
+
+    parent.insertBefore(newEle,oldEle); 把新元素插入到指定元素的前面；
+    insertBefore返回值：是新插入的那个元素；
+    3.替换元素
+    parent.replaceChild(newEle,oldEle);
+    返回值：是被替换的那个元素；
+    4.删除元素
+    parent.removeChild(curEle);
+    返回值：是被删除的那个元素；
+7.parentNode:结构上的父级；
+
+8.关于操作属性：
+    1.“.” 和 []； 只要是点能操作的，[]一定可以操作；
+    2.attribute系列：
+    获取属性 getAttribute('属性名')；
+    设置属性 setAttribute('属性名','属性值')；
+    移除属性 removeAttribute('属性名')//如果想干掉标签上的属性，最好的办法就用它；
+   注意事项：关于“.”和attribute不要混合操作
+“.” 和 attribute的区别：
+    1.当标签上有自定义属性的时候，通过“.”操作属性名，拿不到这个自定义属性的属性值；但是通过getAttribute可以拿到；
+    2.通过“.”给元素上设置自定义属性，在标签上看不到；但是通过setAttribute给元素上设置自定义属性，在标签上可以看到；
+9.字符串常用方法：
+    1.通过下标找对应字符或者编码
+    charAt()
+    charCodeAt()
+    2.通过字符找对应下标
+    indexOf()
+    lastIndexOf()
+    3.截取字符串
+    substr(n,m) 从索引n开始，截取m个
+    substring(n,m)从索引n开始截取到索引m，不包含m；
+    slice(n,m) 从索引n开始截取到索引m，不包含m；可以取负值
+    4.字符串转数组
+    split(‘切割形式’)
+    5.字符串转大小写
+    toUpperCase()
+    toLowerCase()
+    6.字符串常用正则
+    replace（'字符'，‘’） 替换
+    match(); 匹配
+    search(); 查找
+10.
+    1.Math.random() 取随机数
+    2.Math.round() 四舍五入
+    3.Math.floor() 向下取整
+    4.Math.ceil() 向上取整
+    5.Math.abs() 绝对值
+    6.Math.pow() 幂
+    7.Math.sqrt() 开平方
+    8.Math.max() 取最大值
+    9.Math.min() 取最小值；
+
+

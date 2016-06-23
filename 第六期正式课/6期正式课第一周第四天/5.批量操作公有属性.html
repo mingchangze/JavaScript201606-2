@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[1,2,3,4];
+    //关于系统内置类不可以批量操作，这是系统内置类的自我保护机制；但是，可以一个一个操作；
+    /*Array.prototype={};*/
+    Array.prototype.pop=function(){
+        alert(234)
+    };
+    ary.pop()
+    console.dir(ary)
+</script>
+</body>
+</html>

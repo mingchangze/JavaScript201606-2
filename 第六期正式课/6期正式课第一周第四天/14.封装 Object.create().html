@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //var obj2=Object.create(obj);//obj是obj2这个实例的原型
+    var obj={cc:function(){alert('cc')},dd:function(){}}
+    /*function A(){};//构造函数
+    A.prototype=obj;//原型prototype
+    var obj2=new A;//实例
+    //obj2.cc() //obj2.cc()先在自己私有的属性上找，没有的话，去原型这个公有属性上找
+    //obj2.__proto__.cc() //不在私有属性上找，直接跳到原型这个公有属性上找
+    A.prototype.cc();//类直接使用自己的原型属性查找；*/
+    function myCreate(obj){
+        function A(){};//构造函数
+        A.prototype=obj;
+        return new A;
+    }
+    function Fn1(){};
+    Fn1.prototype=obj;
+    var obj2=myCreate(obj);
+    function Fn2(){};
+    Fn2.prototype=obj2;
+    var f1=new Fn2;
+    console.dir(f1);
+    /*
+    * 私有属性
+    *   空
+    * __proto__:
+    *  空
+    * __proto__:
+    * cc:function(){alert('cc')},
+    * dd:function(){}
+    *
+    * */
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=['zhufeng',123,'peixun',23,21];
+    var obj={};
+    Array.prototype.myForEach=function(callback,context){
+        context=context||window;
+        //高级浏览器
+        //判断forEach这个属性是否在对象Array.prototype上
+        if('forEach' in Array.prototype){
+            this.forEach(callback,context);
+            return;//阻断程序执行的作用；
+        }
+        //低级浏览器的兼容处理
+        //1.callback这个回调函数被调用几次？--ary.length;
+        //2.callback这个回调函数是否需要传参？传几个参数？
+        //3.callback的this指向问题--call;
+        //4.callback是否有返回值？--没有
+        for(var i=0; i<this.length; i++){
+            if(typeof callback==='function'){
+                callback.call(context,this[i],i,this)
+            }
+        }
+    };
+    ary.myForEach(function(item,index,input){
+        console.log(this===window)
+    },obj);
+    //alert(typeof window)
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="utils.js"></script>
+<script>
+    var data=null;
+    //1.创建一个ajax对象
+    var xml=new XMLHttpRequest();
+    //2.打开一个地址:true:异步 false：同步
+    xml.open('get','data.txt',false)
+    //3.检查请求状态
+    xml.onreadystatechange=function(){
+        if(xml.readyState===4 && /^2\d{2}$/.test(xml.status)){
+            //数据解析：把JSON格式的字符转成JSON格式的数据（对象）
+            data=utils.jsonParse(xml.responseText)
+            console.log(data)
+        }
+    };
+    //4.发送请求
+    xml.send(null);
+</script>
+</body>
+</html>

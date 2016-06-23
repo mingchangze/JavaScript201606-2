@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //求平均数
+    function average(){
+        var ary=[];
+        for(var i=0; i<arguments.length; i++){//1.类数组转数组
+            ary[ary.length]=arguments[i];
+        }
+        ary.sort(function(a,b){//数组排序
+            return a-b;
+        });
+        ary.shift();//删除首尾项
+        ary.pop();
+        alert((eval(ary.join('+'))/ary.length).toFixed(2))//数组求和/数组长度，最后保留2位数
+
+    }
+    average(9.9,7.7,8.7,7.77,4.4,2,6.6)
+
+</script>
+</body>
+</html>

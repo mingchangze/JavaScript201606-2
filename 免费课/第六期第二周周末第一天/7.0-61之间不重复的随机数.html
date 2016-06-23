@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+   //需求：获取0-61之间不重复的随机数，总共获取4个；
+    var ary=[];
+    /*for(var i=0; i<4; i++){
+        var rnd=Math.round(Math.random()*61);
+        /!*if(ary.indexOf(rnd)!==-1){
+            i--;
+            continue;
+        }
+        ary.push(rnd);*!/
+        if(ary.indexOf(rnd)!==-1){//找到重复
+            i--;
+        }else{//没找到
+            ary.push(rnd);
+        }
+    }*/
+   while(ary.length<4){
+       var rnd=Math.round(Math.random()*61);
+       if(ary.indexOf(rnd)===-1){
+           ary.push(rnd);
+       }
+   }
+    document.write(ary)
+</script>
+</body>
+</html>

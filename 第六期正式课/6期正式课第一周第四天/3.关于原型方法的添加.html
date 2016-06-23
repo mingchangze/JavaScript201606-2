@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function A(){
+        this.x=100;
+    }
+    /*var oA=A.prototype;
+    oA.show1=function(){};
+    oA.show2=function(){};
+    oA.show3=function(){};*/
+    //批量添加A这个类的公有属性和方法；
+    A.prototype={
+        constructor:A,
+        show1:function(){
+            alert(123)
+        },
+        show2:function(){},
+        show3:function(){},
+    };
+    var a=new A;
+    a.show1()
+    alert(a.constructor)
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+       /* div{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }*/
+    </style>
+</head>
+<body>
+<div id="div">
+    <span>我是一个span</span>
+    <p>我是一个P元素</p>
+</div>
+<script>
+    var oWrapDiv=document.getElementById('div');
+    var oDiv=document.createElement('div');
+    var oP=oWrapDiv.getElementsByTagName('p')[0];
+    oDiv.style.width='200px';
+    oDiv.style.height='200px';
+    oDiv.style.background='green';
+    //document.body.appendChild(oDiv);
+    //oWrapDiv.appendChild(oDiv)//插入容器末尾
+   // oWrapDiv.insertBefore(oDiv,oP);
+    //oWrapDiv.removeChild(oDiv);
+    oWrapDiv.replaceChild(oDiv,oP)
+</script>
+</body>
+</html>

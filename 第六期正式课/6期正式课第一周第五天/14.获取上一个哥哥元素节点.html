@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    (function(){
+        function prev(curEle){
+            if('previousElementSibling' in curEle){
+                return curEle.previousElementSibling
+            }
+            var pre=curEle.previousSibling;
+            while(pre&&pre.nodeType!==1){
+                pre=pre.previousSibling;
+            }
+            return pre;
+        }
+        window.prev=prev;
+    })();
+</script>
+</body>
+</html>

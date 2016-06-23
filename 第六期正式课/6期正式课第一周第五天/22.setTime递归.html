@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var n=0;
+    function fn(){
+        n++;
+        alert(n)
+        if(n===5){
+            return;
+        }
+        clearTimeout(timer);
+        var timer=setTimeout(fn,1000)
+    }
+    fn()
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+   /* //previousElementSibling;
+   console.log(aLi[2].previousElementSibling)*/
+    function prev(curEle){
+        //1.高级浏览器
+        if('previousElementSibling' in curEle){
+            return curEle.previousElementSibling;
+        }
+        //2.低级浏览器的兼容
+        var prev=curEle.previousSibling;
+        //循环条件：1）prev必须是个节点 2）一定不是元素节点
+        while(prev && prev.nodeType!==1){
+            prev=prev.previousSibling;
+        }
+        return prev;
+    }
+    prev(aLi[2]).innerHTML='zhufeng';
+</script>
+</body>
+</html>

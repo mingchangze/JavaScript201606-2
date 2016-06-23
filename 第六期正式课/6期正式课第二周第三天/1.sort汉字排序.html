@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>张收</li>
+    <li>王勇</li>
+    <li>刘凯</li>
+    <li>孙洪亮</li>
+</ul>
+<script src="utils.js"></script>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=document.getElementsByTagName('li');
+    //1.类数组转数组
+    var ary=utils.listToArray(aLi);
+    //2.sort排序
+    ary.sort(function(a,b){
+        a=a.innerHTML;
+        b=b.innerHTML;
+        return (a.localeCompare(b))*-1;
+    });
+    //3.把已经排好序的数组内容重新插入页面
+    var frg=document.createDocumentFragment();
+    for(var i=0; i<ary.length; i++){
+        frg.appendChild(ary[i])
+    }
+    oUl.appendChild(frg);
+    frg=null;
+
+    /*ary.sort(function(a,b){
+        return (a-b)*-1;
+    })*/
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[29,34,12,21,6,9];
+    function insertSort(ary){
+        //先给左手存一张牌，他是一个数组；
+        var left=ary.splice(0,1);
+        //拿右手中的每一项，跟左手进行比较
+        for(var i=0; i<ary.length; i++){
+            //跟左手从后往前的比较
+            for(var j=left.length-1;j>=0;){
+                if(ary[i]<left[j]){//右手中的某一个数字，比左手最后一项小
+                    //继续往左比较
+                    j--;
+                    if(j===-1){//如果比较完左手每张牌，还是比他小；
+                        left.unshift(ary[i]);//直接插入左手每张牌的最前面；
+                    }
+                }else{//如果比索引为j的元素大；直接插入到j+1的前面；
+                    left.splice(j+1,0,ary[i]);
+                    break;
+                }
+            }
+        }
+        return left;
+    }
+    console.log(insertSort(ary))
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

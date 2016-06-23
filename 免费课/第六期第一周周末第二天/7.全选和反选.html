@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input{
+            width: 30px;
+            height: 30px;
+        }
+        div input{
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="button" value="全选"/>
+    <input type="button" value="不选"/>
+    <input type="button" value="反选"/>
+</div>
+<div>
+    <input type="checkbox"/><br/>
+    <input type="checkbox"/><br/>
+    <input type="checkbox"/><br/>
+    <input type="checkbox"/><br/>
+    <input type="checkbox"/><br/>
+    <input type="checkbox"/><br/>
+    <input type="checkbox"/><br/>
+</div>
+</body>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    var oDiv2=document.getElementsByTagName('div')[1];
+    var oAll=oDiv.getElementsByTagName('input')[0];
+    var oNo=oDiv.getElementsByTagName('input')[1];
+    var oRen=oDiv.getElementsByTagName('input')[2];
+    var aBtn=oDiv2.getElementsByTagName('input');
+    oAll.onclick=function(){
+        for(var i=0; i<aBtn.length; i++){
+            aBtn[i].checked=true;
+        }
+    };
+    oNo.onclick=function(){
+        for(var i=0; i<aBtn.length; i++){
+            aBtn[i].checked=false;
+        }
+    };
+    oRen.onclick=function(){
+        for(var i=0; i<aBtn.length; i++){
+            if(aBtn[i].checked){
+                aBtn[i].checked=false;
+            }else{
+                aBtn[i].checked=true;
+            }
+        }
+    };
+</script>
+</html>

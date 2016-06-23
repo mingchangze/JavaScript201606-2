@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input{
+            width: 150px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+<input type="button" value="按钮3"/>
+<input type="button" value="按钮4"/>
+<script>
+    //需求：点击每个按钮的时候，弹出对应的索引；
+    //自定义属性不能直接写在标签上，只能写在JS中；因为，页面加载时，系统会默认干掉它不认识的属性；
+    //在事件触发前，循环早已经结束，i已经变成4；
+    //一个元素上可以添加无数个自定义属性；
+    var aBtn=document.getElementsByTagName('input');
+    for(var i=0; i<aBtn.length; i++){
+        aBtn[i].index=i;
+        aBtn[i].onclick=function(){
+            alert(this.aaa)
+        }
+    }
+</script>
+</body>
+</html>

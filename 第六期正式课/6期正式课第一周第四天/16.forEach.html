@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[21,34,45,12];
+    var obj={};
+    //callback 回调函数--一般情况，this也是window
+    //1.回调函数被调用了4次--说明他跟数组的长度有关系
+    //2.回调函数有3个参数：item,index,input
+    //3.默认情况下，回调函数的this是window
+    //4.forEach的第二个参数是用来改变this指向的；
+    //5.回调函数没有返回值；
+    var res=ary.forEach(function(item,index,input){
+        console.log(this)
+        return 123
+    },obj)
+    console.log(res);
+</script>
+</body>
+</html>

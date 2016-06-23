@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function A(){
+        this.x=100;
+    }
+    /*A.prototype.showX=function(){
+
+    }*/
+    A.prototype={
+        showX:function(){}
+    };
+    var a=new A;
+   /*alert(a.showX=== a.__proto__.showX)
+   alert(A.prototype.showX=== a.__proto__.showX)*/
+    alert(a.constructor)
+</script>
+</body>
+</html>

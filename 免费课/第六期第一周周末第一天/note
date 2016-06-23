@@ -1,0 +1,226 @@
+1.前端主要包含两块：UI效果+数据交互
+1）薪资 -最低保障9K --拉勾网
+2）平台和技能 -一技傍身：一专多能
+2.全栈工程师：html+css+Javascript+node+数据库+前端智能优化工具
+3.前端工程师工作流程（整个流程）
+产品经理出需求-UE出线框图（axureRp）-UI设计师出设计稿（抗拍）-前端工程（PSD原型图切图，UI效果，数据获取）--测试-上线--维护，升级（1.真的是产品升级 2.对以前bug修改 3.性能优化）
+                                               -后台（准备数据。。php,java,node...）
+
+4.JS主要包含三部分：
+1）ECMAScript:语法 变量，数据类型，命名规范，流程控制语句。。。 完全兼容的
+2）DOM：document object model 文档对象模型 对DOM的操作  不完全兼容--可以处理成兼容
+3)BOM：browser object model 浏览器对象模型 对window的操作 彻底不兼容，而且没法处理
+5.JS是做什么的？
+JS在做UI效果时，就是用来操作css的；
+6.热身运动
+1）思路：鼠标移入div1，显示div2；鼠标移出div1，隐藏div2；
+    思路分析：
+        1.display:none -display:block
+        2.opacity:0 --opacity:1; opacity是有兼容问题，filter处理兼容
+        3.visibility: hidden --visible;
+        4.marginLeft/marginTop/marginBottom/marginRight..
+        5.left/top..
+        .....
+2）JS书写步骤：
+    1.html结构
+    2.css样式
+    3.JS 行为
+7.一个页面由三部分构成：html+css+js
+html :超文本标记语言
+css :层叠样式表
+js:轻量级的脚本语言
+8.JS的引入方式
+css的引入方式：
+    1.行内
+    2.内嵌
+    3.外链
+JS引入方式：
+    1）内嵌式
+    script标签可以放在页面的任何地方；script如果放在head里，需要加系统事件window.onload
+    2）行内--不建议写行内事件
+    onmouseover="document.getElementById('div2').style.display='block';"
+    3）外链
+    <script src="1.js"></script>
+    注意：在两个script中间不能写代码，写了也不会执行；
+9.快捷键的使用
+#div2 然后按下Tab键，出现 <div id="div2"></div>
+10.标签==元素==元素节点
+11.获取元素
+1）document.getElementById('div1')
+    文档     得到 元素 通过id('div1')
+   在文档下，通过id来获取一个元素；
+2)context.getElementsByTagName('li');
+   通过标签名获取元素；获取到的是一组元素
+   1.他有一个自带的属性.length-->知道获取的元素的个数
+   2.通过索引可以拿到对应的元素,索引从0开始；
+   3.context 上下文：限制范围的获取元素；
+12.输出方式
+1）alert() 在页面中弹出我们要的内容
+2）console.log() 通过控制台的console页卡输出我们要的内容；
+3）console.dir() 可以打印出对象的详细信息；
+4)console.table() 以表格的形式打印对象；
+5）confirm(); 他有两个返回值 true; false;
+6)document.write() 用来给页面输出内容
+   注意：在window.onload里，如果如果document.write();会覆盖掉页面原有的内容；（会清空页面，只显示document.write()的内容）
+7）obj.innerHTML=xxx; 用来给元素添加内容
+关于对象：
+    万物皆对象：
+    对象{name:'zhufeng',age:18} 一个对象有多个属性名和属性值组成，每组之间用","隔开；
+    new Array()--实例创建方式； []--字面量创建方式,
+    new Date();
+    new RegExp()--实例创建方式；/\d+/--字面量创建方式
+13.控制台包含很多页卡
+    1.Elements 页卡：用来调试html+css
+    2.netWork 页卡:用来放所有请求文件
+    3.Resources 页卡:里面放了我们所有的文件：html,JS,图片...
+    4.console 页卡：打印出我们要输出的内容；
+14.操作属性的方式：
+1）关于"."：它是用来操作属性的；
+".":是“的”的意思
+在JS中通过"."来操作元素的属性
+2）[]
+15.什么是属性？什么是方法？
+属性：属性是物体上固有的特征：
+方法：能具体干什么事情了；
+属性和方法的区别：属性没括号，方法有括号；
+16.事件：
+1）鼠标事件
+onmouseover
+onmouseout
+onclick
+2)系统事件：
+window.onload:当页面加载完成的时候；
+3)键盘事件
+4）表单事件
+5）事件源。。。。
+17."=" 是用来赋值的
+
+19.变量：可变的量，别名
+var：是用来定义变量的
+定义变量的步骤：var 变量名=xxxxxxxxxxxx;
+20:JS中页面的加载顺序是从上到下的执行；
+21:数组的写法[a,b,c,d]
+22.流程控制语句：包含两部分： 循环+判断
+1）for循环
+循环包含四步骤：
+    1.定义
+    2.条件
+    3.语句
+    4.自增
+跟循环相关的两个知识点：
+    1.break 跳出循环，后面东西不再执行；
+    2.continue 本次循环不执行，以后循环继续执行；
+2）while
+    var i=0;
+    while(i<5){
+        console.log(i);
+        i++;
+    }
+    while循环和for循环在用法上的区别：for循环用于长度固定的情况下； while循环用于长度未知的情况下；
+3）do..while循环：无论条件是否成立，都会先执行一次，以后才会按照条件判断来执行对应的语句
+do{
+    alert(i);
+    i++;
+}while(i<5)
+4）for in循环
+2)判断
+    1.if判断
+23.命名规范
+    类型	前缀	类型	实例
+    数组	a	Array	aItems
+    布尔值	b	Boolean	bIsComplete
+    浮点数	f	Float	fPrice
+    函数	fn	Function	fnHandler
+    整数	i	Integer	iItemCount
+    对象	o	Object	oDiv1
+    正则表达式	re	RegExp	reEmailCheck
+    字符串	s	String	sUserName
+    变体变量	v	Variant	vAnything
+24.检测数据类型：
+    1.typeof
+        1.typeof检测出来的东西，都是字符串，字符串里面包裹的才是数据真正的类型
+        eg:typeof typeof a
+        2.局限性：不能对对象类型进行细分；
+    2.constructor : 函数，通过函数名来判断数据类型
+    3.instanceof  : a instanceof Array--a 是不是数组这个类的一个实例；
+    4.Object.prototype.toString.call();
+数据类型包含两部分：基本数据类型 和 引用数据类型
+    1.基本数据类型：
+        1.字符串 string
+            1.概念：被单引号或者双引号包裹的都是字符串；
+            个人建议：在JS中，字符串最好用单引号； 因为页面中标签上的属性值默认都是双引号；
+            2.变量和字符串的区别：变量没引号，字符串有引号
+            变量如果不存在，会报错；
+            3.+ 在JS中有两个作用：1）字符串拼接 2）数学运算； 系统比较懒，默认会选择第一个，即只进行字符串拼接
+            除了+在JS中有字符串拼接的功能外，其他-,*,/都可以正常进行数学运算，他们都有隐式转换的功能
+            4.字符串索引从0开始，并且也有length属性
+            //预习：字符串常用方法；
+        2.数字 number
+            1、正数 负数 0 2.33444
+            2、其他数据类型转为数字类型
+            严格转换 Number();
+            非严格转换
+                parseInt() 进行正数的转换：从左往右检查，如果不是数字，立马停止；
+                parseFloat() 进行保留小数的转换
+            数字常用的方法：toFixed(保留小数的个数) 我们在保留小数个数的同时，还是四舍五入的功能；
+            3.NaN:not a number 是不是一个数字；
+            NaN 出现的情况：
+                1、转换失败；
+                2、无效的数学运算
+            4.其他数据类型转为数字类型的规律：
+                1.布尔 true：1； false：0；
+                2.null：0； undefined：NaN;
+                3.[]:0 转换步骤：先通过toString()转成''-0；
+        3.布尔 boolean
+            1.boolean : true false
+            2.其他数据类型转为boolean的转换方式有哪些？
+                1.Boolean();
+                2.！用来取反 在有！的情况下，默认会进行布尔值的转换；
+                3.!! 取反再取反，相当于没反
+                4.if(值) 如果是一个值，默认进行布尔值的转换
+                5.if(表达式) 如果是个表达式的话，默认进行布尔值的转换；
+            3.什么是真？什么是假？
+            除了 0 NaN '' null undefined 为假，其他都为真；
+        4.null 空对象
+        5.undefined
+        null 和 undefined的区别：
+        null：现在没有，以后会有；
+        undefined：现在没有，以后也没有；
+
+    2.引用数据类型
+        1.对象数据类型：{},[],new oDate(); /\d+/;...
+            1.对象的增删改查
+                obj.name='peixun';//对象的修改；
+                obj.sex='lalalla';//对象的增加；
+                console.log(obj['ad'])//对象的查找
+                obj.name=null;//假删除
+                delete obj.name;//真删除
+            2.对象的循环用for in
+                for(var attr in obj){
+                    console.log(attr+':'+obj[attr])
+                }
+            3.对象的属性名如果为纯数字的情况下，一定不能用"."来操作，必须放在[]中，引号可加可不加；
+        2.函数数据类型
+        函数：就是用来干我们想干的事情的；
+        1)函数包含两部分：定义 和 调用
+        函数只定义，不调用，是没法执行的；必须同时定义后并调用，才能执行
+            //函数定义部分：
+            function 函数名(){函数定义时,小括号里的是参数--形参
+
+            }
+            //函数调用
+            函数名() 函数调用时，小括号中的参数--实参
+        2)函数返回值return:
+            如果函数没有写return--undefined；
+            函数写了return，但是后面没有赋值--undefined；
+        3）函数的参数：
+            1.函数定义时,小括号里的是参数--形参；函数调用时，小括号中的参数--实参；
+            2.如果函数定义了形参，但是函数调用时没有传实参;拿到的就是undefined;
+            3.如果参数都不传或者传的是不确定的参数，而且没有形参接收的情况下，会是什么？
+            函数天生自带了一个参数机制,arguments:无论是否传参，或者传参数不确定的情况下，arguments都能接收到；
+注意：操作class属性名的时候，因为class是保留字，不能用class，只能className；
+25、算术：+ - * / %\
+% 是用来取余数的；%的小技巧：有几种情况就%几；
+26、在JS中写css中的复合样式，不能有-，必须第二个单词首字母大写；
+
+

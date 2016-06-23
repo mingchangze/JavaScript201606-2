@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var name='中国';
+    var age=5000;
+    name=(function(name,age){//name:'珠峰';age=5000;
+        arguments[0]='珠峰';
+        age=age||this.age;
+        console.log(name,age)//name:'珠峰';age=5000;
+    })(name);
+    console.log(name,age)//undefined 5000;
+</script>
+</body>
+</html>

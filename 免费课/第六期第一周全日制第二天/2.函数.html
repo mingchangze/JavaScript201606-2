@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 40px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" class="box" style="height: 100px;" ></div>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    //需求：点击oDiv时，执行函数aa;
+    /*oDiv.onclick=aa;//把函数表达式做为值赋值给oDiv.onclick事件；只有当oDiv的事件被触发的时候，才会执行aa这个函数；
+    function aa(){
+        alert(123)
+    }*/
+    //aa();//函数名aa代表了aa整个函数；但aa不能执行；真正的执行是调用；调用--函数名+（）--aa()
+   // alert(oDiv.className)
+    //console.dir(oDiv.style)
+    oDiv.name='123';
+    oDiv.index='zhufengpeixun';
+    oDiv.aa='aaaaaaaaaa'
+    //alert(oDiv.name)
+    //alert(oDiv.aa)
+    console.dir(oDiv)
+    oDiv.onclick=function(){
+        alert(this.id)
+        alert(123)
+    };
+
+
+
+</script>
+</body>
+</html>

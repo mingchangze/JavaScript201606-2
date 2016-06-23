@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={};
+    //1.回调函数：把一个函数表达式作为参数传给另一个函数；callback
+    //2.回调函数被调用的次数 --根据自己的需要调用n次；
+    //3.回调函数传参 callback(参1，参2)--如果函数定义了形参，但是回调函数中没有传实参，拿到的是undefined;
+    //4.回调函数中this的修改；如果想改变this指向---用call(改变this指向，参1，参2.。。。)；
+    //5.回调函数中有返回值吗？
+    function fn1(callback){//callback就相当于我们传进来的函数表达式aa;
+        //callback(1);//1+undefined=NaN;
+        var res=callback.call(obj,1,3)//callback执行的时候，就相当于调用aa();
+        alert(res)
+
+    }
+    function aa(n,m){
+        alert(this+','+(n+m))//防止字符串拼接
+    }
+    fn1(aa)
+
+</script>
+</body>
+</html>

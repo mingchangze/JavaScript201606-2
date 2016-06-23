@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[28,32,21,12,8];
+    /*
+    * 第一轮比较 :最多比较4次 ary.length-1-0； 此轮比较，虽然没有实现目标，但是把最大值放在数组的末尾；
+    * [28,32,21,12,8]
+    * [28,21,32,12,8]
+    * [28,21,12,32,8]
+    * [28,21,12,8,32]
+    *第二轮比较：最多比较3次 ary.length-1-1；
+    * [21,28,12,8,32]
+    * [21,12,28,8,32]
+    * [21,12,8,28,32]
+    * 第三轮比较：最多比较2次 ary.length-1-2
+    * [12,21,8,28,32]
+    * [12,8,21,28,32]
+    *第四轮比较：最多比较1次；ary.length-1-3
+    * [8,12,21,28,32]
+    *
+    * */
+    //思路：如果数组的长度是5；我们最多比较4轮(ary.length-1)；每轮比较的次数 ary.length-1-i; 每次比较的时候，都是拿当前项跟后一项进行比较；
+//type 如果传1，代表从大到小排序；如果不传，或者传其他，还是从小到大排；
+    function bubbleSort(ary,type){
+        for(var i=0; i<ary.length-1; i++){
+            for(var j=0; j<ary.length-1-i; j++){
+                if(ary[j]>ary[j+1]){
+                    var tmp=ary[j];
+                    ary[j]=ary[j+1];
+                    ary[j+1]=tmp;
+                }
+            }
+        }
+        /*if(type===1){
+            ary.reverse();
+        }
+        return ary;*/
+        return type===1?ary.reverse():ary;
+    }
+    console.log(bubbleSort(ary,1))
+</script>
+</body>
+</html>

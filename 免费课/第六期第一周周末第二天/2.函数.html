@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>珠峰培训，祝你好运</div>
+</body>
+<script>
+    //点击div ,弹出123；
+    var oDiv=document.getElementsByTagName('div')[0];
+    /*oDiv.onclick=aa;//当函数名做为值赋值给元素事件的时候；一定不能加();否之直接调用；
+    function aa(){
+        alert(123)
+    }*/
+    /*oDiv.onclick=function (){
+        alert(123)
+    }*/
+    function fn(){
+        var a=123;
+    }
+    function fn2(){
+        alert(a)
+    }
+    fn();
+    fn2();
+</script>
+</html>

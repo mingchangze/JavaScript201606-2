@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="wrap">
+    <p>我是一个p元素
+        <span>我是p标签中的span元素</span>
+    </p>
+    <p>22222222222</p>
+</div>
+<script>
+    var oWrap=document.getElementById('wrap');
+    var oP=oWrap.getElementsByTagName('p');
+    var oSpan=document.createElement('span');
+    var oP2=oP[0].cloneNode(true);
+    //在文档下，创建一个标签名为span的元素
+    oSpan.innerHTML='我是一个span标签';
+    var res=oWrap.appendChild(oSpan)//把新元素oSpan添加到容器div的末尾
+     /*oWrap.appendChild(oP2)//把新元素oSpan添加到容器div的末尾*/
+    //var res=oWrap.insertBefore(oSpan,oP[1])
+    console.log(res);
+    /*var res=oWrap.replaceChild(oSpan,oP[1])
+    console.log(res)
+    var res1=oWrap.removeChild(oP[0])
+    console.log(res1)*/
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 35px;
+        }
+        li.bg0{
+            background: lightblue;
+        }
+        li.bg1{
+            background: lightgoldenrodyellow;
+        }
+        li.bg2{
+            background: lightpink;
+        }
+        li.changeBg{
+            background: darkmagenta;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].className='bg'+i%3;
+        var bg=null;
+        aLi[i].onmouseover=function(){
+            bg=this.className;
+            this.className='changeBg';
+        };
+        aLi[i].onmouseout=function(){
+            this.className=bg;
+        };
+    }
+</script>
+</body>
+</html>

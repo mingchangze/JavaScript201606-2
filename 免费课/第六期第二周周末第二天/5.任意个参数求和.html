@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function add(){
+        //系统内置的参数机制：arguments
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            if(!isNaN(arguments[i])){
+                total+=Number(arguments[i])
+            }
+        }
+        return total;
+    }
+    console.log(add(1,2,3,'3','3px'))
+</script>
+</body>
+</html>

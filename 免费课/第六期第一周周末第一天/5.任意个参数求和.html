@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //需求：任意个参数求和：参数不确定
+    //函数封装：对于做相同功能的事情，只需要封装一次，以后再用，只需要调用即可，无需再重写；
+    //对于每个功能中不同的地方，通过传参处理；
+    //获取值的时候：函数都有返回值；
+    //设置值的时候：函数一般都没有返回值；
+    /*function add(){
+        var total=null;
+        //console.log(arguments)
+        for(var i=0; i<arguments.length; i++){
+            if(!isNaN(arguments[i])){
+                total+=parseInt(arguments[i]);
+            }
+        }
+        return total;
+    }*/
+    function add(){
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            if(!isNaN(arguments[i])){
+                total+=parseFloat(arguments[i])
+            }
+        }
+        return total;
+    }
+    console.log(add(1))
+</script>
+</body>
+</html>

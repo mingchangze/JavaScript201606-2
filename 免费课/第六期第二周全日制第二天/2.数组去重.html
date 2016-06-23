@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[2,2,1,2,3,4,5,3,4,5,3,2,4,2];
+    //思路1：双重for循环 拿当前项，跟他以后的每一项进行比较，如果后面有跟他重复的，就删掉后面的那个重复项；
+    /*for(var i=0; i<ary.length; i++){
+        for(var j=i+1; j<ary.length; j++){
+            if(ary[i]===ary[j]){
+                ary.splice(j,1);
+                j--;
+            }
+        }
+    }*/
+    //思路2：创建一个对象，每次给对象中赋值时，看对象中的这个属性名是否存在，如果存在，就不忘对象中添加；否则，正常添加
+    /*var obj={};
+    for(var i=0; i<ary.length; i++){
+        if(obj[ary[i]]===ary[i]){
+            ary.splice(i,1);
+            i--;
+        }
+        obj[ary[i]]=ary[i];
+    }
+    obj=null;*/
+    //思路3：创建一个对象，如果对象中没有该属性名，把数组中的这一项做为属性名，放在对象中，同时，给他赋值为1；反之；对属性名对应的值行进累加；\
+    /*
+    * obj[2]=1
+    * 如果对象已经有obj[2] 对他进行累加；
+    *
+    * */
+
+    /*var obj={};
+    var ary2=[];
+    for(var i=0; i<ary.length; i++){
+        if(obj[ary[i]]){//条件如果为真，代表属性名已经存在；
+            obj[ary[i]]++;
+        }else{
+            obj[ary[i]]=1;
+        }
+    }
+    for(var attr in obj){
+        ary2.push(attr)
+    }*/
+    //思路4. sort() 先把数组从小到大的排序；然后用当前项跟后一项进行比较，如果相同就删掉
+    /*ary.sort(function(a,b){return a-b});
+    for(var i=0; i<ary.length; i++){
+        if(ary[i]===ary[i+1]){
+            ary.splice(i,1);
+            i--;
+        }
+    }*/
+    //思路5 新数组--看新数组中如果没有这一项才会给数组中添加
+    var ary2=[];
+    for(var i=0; i<ary.length; i++){
+        if(ary2.indexOf(ary[i])===-1){
+            ary2.push(ary[i])
+        }
+    }
+
+
+    console.log(ary2)
+
+</script>
+</body>
+</html>

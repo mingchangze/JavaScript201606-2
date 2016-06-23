@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin:30px auto;
+            background: green;
+            font-size: 100px;
+            text-align: center;
+            line-height: 200px;
+            -webkit-user-select: none;
+            background:-webkit-linear-gradient(top,lightgreen,linen,lightgoldenrodyellow);
+            background:-moz-linear-gradient(top,lightgreen,linen,lightgoldenrodyellow);
+            background:-o-linear-gradient(top,lightgreen,linen,lightgoldenrodyellow);
+            background:-ms-linear-gradient(top,lightgreen,linen,lightgoldenrodyellow);
+        }
+    </style>
+</head>
+<body>
+<div>0</div>
+<script>
+    //需求：计数器--即：通过点击，不断自增；
+    var oDiv=document.getElementsByTagName('div')[0];
+    //思路1.全局变量  --不推荐
+    /*var n=0;
+    oDiv.onclick=function(){
+        this.innerHTML=++n;
+    }*/
+    //思路2：闭包 形成多个不销毁的私有作用域 --不推荐
+    /*(function(){
+     var n=0;
+     oDiv.onclick=function(){
+     this.innerHTML=++n;
+     }
+     })();*/
+    /*oDiv.onclick=(function(){
+        var n=0;
+        return function(){
+            this.innerHTML=++n;
+        }
+    })();*/
+    //思路3：自定义属性的思想，推荐的；
+    /*oDiv.n=0;
+    oDiv.onclick=function(){
+        this.innerHTML=++this.n;
+    }*/
+    //思路4：DOM操作； --不推荐
+    oDiv.onclick=function(){
+        this.innerHTML++;
+    }
+    //考虑性能的前提是，已经完成项目；
+
+</script>
+</body>
+</html>

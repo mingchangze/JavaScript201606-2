@@ -1,0 +1,109 @@
+1.节点类型
+元素节点  1  大写的标签名 null
+文本节点  3  #text      文本内容
+注释节点  8  #comment   注释内容
+document 9  #document  null
+2.节点关系
+    1.parentNode
+    2.childNodes
+    3.children
+    4.firstChild
+    5.lastChild
+    6.previousSibling
+    7.nextSibling
+3.数组常用方法
+第一类 增加，删除，替换
+    1.splice
+        splice(n,m) 删除
+        splice(n,0,x) 增加
+        splice(n,m,x) 替换
+     2.push
+     3.pop
+     4.unshift
+     5.shift
+第二类 查找和克隆
+    6.slice(n,m) 从索引n截取到索引m 不包含m
+    7.ary1.concat(ary2)
+    3.克隆
+        slice(0)/slice();
+        concat()
+第三类 数组的排序和排列
+    8.reverse()
+    9.sort(function(a,b){return a-b})
+第四类 数组转字符串
+    10.toString()
+    11.join(拼接形式)
+        eval（） 把字符串转成JS代码来执行
+第五类 常用但不兼容的
+    12.indexOf() 存在：内容索引； 不存在-1
+    13.forEach(function(item,index){}) 没有返回值
+    14.map(function(item,index){}) 有返回值；
+4.字符串常用方法
+第一类：通过下标找到对应的字符或者编码
+    1.charAt() 通过下标找字符串中对应的字符
+    2.charCodeAt(); 通过下标找到每个字符对应的ASCII编码值；
+第二类：通过字符找到对应的索引
+    3.indexOf()  从前往后找，找到返回的当前字符对应的索引；找不到返回的都是-1；
+    4.lastIndexOf()从后往前找，找到返回的当前字符对应的索引；找不到返回的都是-1；
+第三类：字符串截取
+    5.substr(n,m) 从索引n开始，往后找m个，原字符串不发生改变
+    6.substring(n,m) 从索引n开始，到索引m，但不包含m；
+    7.slice(n,m)从索引n开始，到索引m，但不包含m；但是他可以取负值；
+第四类：字符串转数组
+    8.split(切割形式) 通过切割形式转成数组；
+第五类： 字符串转大小写
+    9.toUpperCase() 字符串转大写
+    10.toLowerCase() 字符串转小写
+第六类：字符串替换以及以后会用在正则的；
+    11.replace(); 字符串替换
+    12.search（）; 用来查找字符的，找到返回对应字符的索引； 找不到-1；
+    13.match（）；匹配字符的，找到，就把找到的内容以数组的形式返回；找不到null；
+5.日期对象 new Date();
+    1.oDate.getFullYear() 年
+    2.oDate.getMonth()+1 月份获取时一定要+1；
+    3.oDate.getDate() 日
+    4.oDate.getDay() 星期 注意：周日 0；
+    5.oDate.getHours() 时
+    6.oDate.getMinutes() 分
+    7.oDate.getSeconds() 秒
+    8.getTime() 距离1970年1月1日00时00分00秒的毫秒数
+
+6.定时器
+    1. setTimeout(fn,1000)  1000毫秒后执行一次；而且仅仅只执行一次
+    2.setInterval(fn,500) 每隔500毫秒执行一次
+    3.定时器的返回值：第几个定时器；
+    4.定时器小技巧：每开启一个定时器之前，一定要先关闭没用的定时器；
+    5.定时器关闭
+    clearTimeout  可以关闭setTimeout(); 也可以关闭 setInterval();
+    clearInterval 可以关闭setTimeout(); 也可以关闭 setInterval();
+    注意：我们一般都是成双成对的关闭；
+7.操作属性的方式
+1） 通过"." []
+2)attribute系列：
+    getAttribute（‘属性名’） 通过属性名获取属性值；
+    setAttribute('属性名','属性值')
+    removeAttribute（‘属性名’）
+3）关于"."和Attribute
+    1.如果标签上定义了自定义属性，通过"."获取不到，但是通过getAttribute能获取到；
+    2.通过"."设置自定义属性，在标签上看不到；但是通过setAttribute设置自定义属性，标签上可以看到；
+注意事项：. 和 attribute 一定不能混搭；即 通过点设置属性，就通过点来获取属性；通过setAttribute来设置属性，就getAttribute来获取属性；
+8.获取子元素的思路：
+    1.获取到所有的子节点
+    2.通过循环，判断每个子节点的nodeType是否等于1，如果等于1；说明它是元素节点，我们就把他保存到数组中；
+    3.循环结束后，返回整个数组（数组中保存的就是每个元素节点）
+9.封装获取上一个哥哥元素节点思路
+    1.首先判断高级浏览器和低级浏览器；因为高级浏览器支持obj.previousElementSibling;他可以直接获取到上一个哥哥元素节点
+    2.低级浏览器需要我们单独处理兼容：
+    首先获取上一个节点prev;
+    通过 while循环，最终找到上一个哥哥元素节点； 循环条件（是个节点 && 这个节点不是元素节点）
+10.获取验证码
+    1.封装完整版的获取随机数 1)n,m如果不是数组的处理 2）如果n>m 交换位置
+    2.通过循环拿到4个随机数，然后把随机数当作字符串的索引获取对应的字符，把字符进行拼接，就是我们要的四个验证码
+
+
+
+
+
+
+
+

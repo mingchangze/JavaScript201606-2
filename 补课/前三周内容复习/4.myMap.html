@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={};
+    var ary=[12,34,56,28];
+    //公有的方法都封装在原型prototype上
+    /*关于封装方法的思考技巧：
+     * 1.作用：实现系统内置的forEach(); --prototype , this -实例
+     * 2.是否有参数，有几个参数？ callback，context
+     * 3.高级浏览器和低级浏览器各自的兼容性
+     * 4.myforEach() 没有返回值；
+     * */
+    /*回调函数需要关注的4点：
+     * 1.回调函数执行次数和this这个实例的长度有关；
+     * 2.回调函数是否传参，有3个参数
+     * 3.this指向--可以通过call,apply来修改this指向
+     * 4.返回值
+     *
+     * */
+
+    Array.prototype.myMap=function(callback,context){
+        context=context||window;
+        //this--指向每个Array数组类的实例；
+        if('map' in Array.prototype){//高级浏览器兼容处理；
+            return this.map(callback,context);
+        }
+        //低级浏览器兼容处理；
+        var ary=[];
+        for(var i=0; i<this.length; i++){
+            //callback.call(context,this[i],i,this);
+            var val=callback.apply(context,[this[i],i,this])
+            ary.push(val);
+        }
+        return ary;
+
+    };
+    var res=ary.myMap(function(item,index,input){
+        console.log(item+','+index)
+        return item*10;
+    },obj)
+    console.log(res)
+    console.log(ary)
+</script>
+</body>
+</html>

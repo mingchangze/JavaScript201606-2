@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person(name,age){
+        //var obj={}//字面量方式创建
+        var obj=new Object();//实例创建 ---1.自己创建一个空对象
+        obj.name=name; //2.给对象添加私有的属性和方法；
+        obj.age=age;
+        obj.showName=function(){
+            alert('我的名字是'+this.name)
+        };
+        return obj; //3.输出对象
+    }
+    var p1=Person('zhufeng',8);
+    var p2=Person('王勇',18);
+    var ary=new Array();
+    alert(p1.name)
+    //p1.showName();
+    //p2.showName();
+</script>
+</body>
+</html>

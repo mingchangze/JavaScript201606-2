@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[34,28,9,12,26];
+    /*
+    * [9] -> 9  left.concat([9],right)
+    * left[] right[34,28,12,26]=> [9,34,28,12,26]
+    * [12]
+    * left[] right[34,28,26]
+    * [28]
+    * left[26] right[34] =>[9 26 28 34]
+    *
+    * */
+
+    function quickSort(ary){
+        //什么请款不再拆分 ary.length<=1;
+        if(ary.length<=1){
+            return ary;
+        }
+        var num=Math.floor(ary.length/2);//中间数的索引；
+        var numValue=ary.splice(num,1)[0]; //中间这个数拿出来；
+        var left=[];
+        var right=[];
+        //循环数组中的每一项，跟numValue进行比较，比他小的放左边；比他大的放右边；
+        for(var i=0; i<ary.length; i++){
+            if(ary[i]<numValue){
+                left.push(ary[i]);
+            }else{
+                right.push(ary[i]);
+            }
+        }
+        return quickSort(left).concat([numValue],quickSort(right));
+    }
+    console.log(quickSort(ary))
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //在原型上
+    Object.prototype.aa=function(){};
+    var obj={name:'zhufeng',age:8}
+    for(var attr in obj){
+        //看对象上的这个属性是否可以枚举并且打印出来
+       /* if(obj.propertyIsEnumerable(attr)){
+            console.log(attr)
+        }*/
+        //判断attr是否是对象上的私有属性；
+        if(obj.hasOwnProperty(attr)){
+            console.log(attr)
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person(name,age){
+        //this就是系统帮我们自动创建的对象--指向我们当前创建的实例；
+        this.name=name; //2.给对象添加私有的属性和方法；
+        this.age=age;
+        this.eat=function(){};
+    }
+    //公有的空间-里面放公共的方法；
+    Person.prototype.showName=function(){
+        alert('我的名字是'+this.name)
+    };
+    var p1=new Person('zhufeng',8);
+    var p2=new Person('zhufeng',8);
+    alert(p1.showName===p2.showName)
+    /*var ary1=[];
+    var ary2=[];
+    alert(ary1.push===ary2.push)*/
+
+</script>
+</body>
+</html>

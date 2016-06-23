@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[12,32,'peixun',22,8,'珠峰'];
+    /*console.log(eval(ary.join('+')))*/
+    /*var res=ary.forEach(function(item,index){
+        console.log(item+':'+index)
+        return 123;
+    })*/
+    var res=ary.map(function(item,index){
+        console.log(item+':'+index)
+        return item+'123';
+    })
+    console.log(res)
+</script>
+</body>
+</html>

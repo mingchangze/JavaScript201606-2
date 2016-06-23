@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        li{
+            height: 40px;
+            font-size: 40px;
+            line-height: 40px;
+            color: #333;
+        }
+        li span{
+            display: inline-block;
+            width: 150px;
+        }
+        li.bg0{
+            background: lightgoldenrodyellow;
+        }
+        li.bg1{
+            background: lightpink;
+        }
+        li.bg2{
+            background: lightgreen;
+        }
+        li.changeBg{
+            background: darkmagenta;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul"></ul>
+<script>
+    //99乘法表原理分析：
+    /*for(var i=1; i<=9; i++){
+        //document.write(i+'=>')
+        for(var j=1; j<=i; j++){
+            document.write(j+'*'+i+'='+j*i+'\t')//\t:制表符，就是电脑上的tag键，缩进一点
+
+        }
+        document.write('<br/>')
+    }*/
+    var oUl=document.getElementById('ul');
+    var aLi=oUl.getElementsByTagName('li');
+    var str='';
+    var oldBg=null;
+    //创建行和列用的是字符串拼接
+    //i：代表的行数--根据i来确定建立多少个li
+    //j：代表列数--根据j来确定建立多少个span
+    for(var i=1; i<=9; i++){
+        str+='<li>';
+        for(var j=1; j<=i; j++){
+            str+="<span>"+(j+'*'+i+'='+j*i+'\t')+"</span>"
+            //document.write(j+'*'+i+'='+j*i+'\t')
+        }
+        str+='</li>'
+    }
+    oUl.innerHTML=str;//innerHTML：是给标签添加内容
+    //隔行换色
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].className='bg'+i%3;//%的技巧：有几种情况就%几；
+        aLi[i].onmouseover=function(){
+            oldBg=this.className;//先把原来的颜色保存下来；
+            this.className='changeBg';
+        };
+        aLi[i].onmouseout=function(){
+            this.className=oldBg;//移出的时候，把原来保存好的颜色放回去
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

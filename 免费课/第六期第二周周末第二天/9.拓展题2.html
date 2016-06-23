@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //预解释：在页面加载之前，浏览器默认会对带var ; 和带function进行提前声明；
+    //带var :只声明不定义
+    //带function ：声明+定义；
+    //私有作用域里：1.形参赋值 2.预解释 3.代码从上到下的执行；
+    var a=1;
+    function fn(){
+        var a=12;//私有的a; 15
+        function c(){
+            a=15;
+            alert(a);//15
+        }
+        alert(a);//12
+        return c;
+    }
+    var f=fn();//function c 的定义阶段
+    f();//c(); 15;
+    alert(a);//1
+</script>
+</body>
+</html>
